@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceTrafficPoliceAnswerQuestionTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceTrafficPoliceAnswerQuestionTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceTrafficPoliceAnswerQuestionTest">
+                <methods>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByNotExistParameterAnswer"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByNotExistParameterId"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByParameterIdValueIsNotExist"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByParameterIdValueIsNotMatch"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByRepeatAnswer"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByParameterAnswerValueIsEmpty"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByAnswerOneQuestion"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByCircleAnswerQuestion1"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByCircleAnswerQuestion2"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByCircleAnswerQuestion3"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByCircleAnswerQuestion4"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByCircleAnswerQuestion5"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByCircleAnswerQuestion6"></include>
+                    <include name="businessServiceTrafficPoliceAnswerQuestionTestByDeleteQuestion"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

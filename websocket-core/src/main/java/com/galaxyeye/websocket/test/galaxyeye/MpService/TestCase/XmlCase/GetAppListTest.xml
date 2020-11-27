@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetAppListTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetAppListTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.GetAppListTest">
+                <methods>
+                    <include name="getapplistTest"></include>
+                    <include name="getapplistTestByUidAndToken"></include>
+                    <include name="getapplistTestByBmappidAndAccessToken"></include>
+                    <include name="getapplistTestByPage"></include>
+                    <include name="getapplistTestByPageValueIsNegative"></include>
+                    <include name="getapplistTestByCountValueIsNegative"></include>
+                    <include name="getapplistTestByVersion"></include>
+                    <include name="getapplistTestByNotExistParameterVersion"></include>
+                    <include name="getapplistTestByNotExistParameterEnv"></include>
+                    <include name="getapplistTestByNotExistParameterConfAppid"></include>
+                    <include name="getapplistTestByNotExistParameterConfAppidAndNotExistParameterEnvAndNotExistParameterVersion"></include>
+                    <include name="getapplistTestByListEqualTotal"></include>
+                    <include name="getapplistTestByQueryResultIsEmpty"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

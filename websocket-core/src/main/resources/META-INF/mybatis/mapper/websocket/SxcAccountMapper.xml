@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcAccountMapper">
+  <resultMap id="SxcAccountResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcAccount">
+    <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="user_id" property="userId" jdbcType="INTEGER" />
+      <result column="account_id" property="accountId" jdbcType="INTEGER" />
+      <result column="balance" property="balance" jdbcType="BIGINT" />
+      <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+      <result column="state" property="state" jdbcType="INTEGER" />
+      <result column="subsidy_balance" property="subsidyBalance" jdbcType="BIGINT" />
+      <result column="cash_balance" property="cashBalance" jdbcType="BIGINT" />
+      <result column="base_cash_balance" property="baseCashBalance" jdbcType="BIGINT" />
+  </resultMap>
+
+    <sql id="tableName">
+		sxc.sxc_account
+	</sql>
+    <sql id="columns">
+		id,user_id,account_id,balance,create_time,state,subsidy_balance,cash_balance,
+        base_cash_balance
+	</sql>
+
+
+
+    <select id="getByuserId" resultMap="SxcAccountResultMap" parameterType = "java.lang.Integer">
+        select <include refid="columns" /> from
+         <include refid="tableName" />
+        where user_id=#{userId,jdbcType = INTEGER}
+    </select>
+
+
+    <update id="updateBalance" parameterType="HashMap" >
+        update <include refid="tableName" /> set balance=#{balance},
+        cash_balance=#{cashBalance},subsidy_balance=#{subsidyBalance}
+         ,base_cash_balance=#{baseCashBalance}
+         where user_id=#{userId}
+    </update>
+
+</mapper>

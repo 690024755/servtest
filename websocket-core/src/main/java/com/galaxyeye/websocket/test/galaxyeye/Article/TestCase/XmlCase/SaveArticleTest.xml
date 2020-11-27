@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SaveArticleTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="SaveArticleTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.SaveArticleTest">
+                <methods>
+                    <include name="saveArticleTestByNewArticle"></include>
+                    <include name="saveArticleTestByUpdateArticle"></include>
+                    <include name="saveArticleTestByParameterIdValueIsOne"></include>
+                    <include name="saveArticleTestByRepeatTitle"></include>
+                    <include name="saveArticleTestByParameterMainTypeValueIsNotExist"></include>
+                    <include name="saveArticleTestByNotExistParameterMainType"></include>
+                    <include name="saveArticleTestByNotExistParameterTitle"></include>
+                    <include name="saveArticleTestByParameterEnableValueIsFalse"></include>
+                    <include name="saveArticleTestByParameterAssLabsNotMatchMainTypeOrAssSubTypeNotMatchMainType"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="saveArticleTestByOpenMethodAndUid"></include>
+                    <include name="saveArticleTestByOpenMethodAndBmAppid"></include>
+                    <include name="saveArticleTestByAuthMethodAndUid"></include>
+                    <include name="saveArticleTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="saveArticleTestByAuthMethodAndBmAppid"></include>
+                    <include name="saveArticleTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

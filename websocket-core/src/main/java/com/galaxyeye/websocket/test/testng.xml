@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="服务端自动化代码测试-账号文章小程序">
+
+    <suite-files >
+        <suite-file path="./galaxyeye/AutoTest/TestCase/XmlCase/Total/autoTestTotal.xml"></suite-file>
+
+        <!--账号-->
+<!--        <suite-file path="./galaxyeye/Acc/TestCase/XmlCase/Total/AccTotal.xml"></suite-file>-->
+        <!--调试<suite-file path="./galaxyeye/Acc/TestCase/XmlCase/AccServiceCheckSignTest.xml"></suite-file>-->
+
+        <!--文章-->
+<!--        <suite-file path="./galaxyeye/Article/TestCase/XmlCase/Total/ArticleTotal.xml"></suite-file>-->
+        <!--调试<suite-file path="./galaxyeye/Article/TestCase/XmlCase/AuditArticleTest.xml"></suite-file>-->
+
+        <!--小程序-->
+<!--        <suite-file path="./galaxyeye/MpService/TestCase/XmlCase/Total/MpServiceTotal.xml"></suite-file>-->
+        <!--调试<suite-file path="./galaxyeye/MpService/TestCase/XmlCase/BusinessServiceMessageBoardCreateMessageTest.xml"></suite-file>-->
+
+    </suite-files>
+    <listeners>
+<!--        <listener class-name="com.galaxyeye.websocket.tool.http.ExtentTestNGIReporterListener"/>-->
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+    </listeners>
+</suite>

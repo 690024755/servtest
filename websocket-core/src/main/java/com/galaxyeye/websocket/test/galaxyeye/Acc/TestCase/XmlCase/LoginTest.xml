@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LoginTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="LoginTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.LoginTest">
+                <methods>
+                    <include name="LoginByCreateUserTestByUnionId"></include>
+                    <include name="LoginByCreateUserTestByNickNameAndUnionId"></include>
+                    <include name="LoginByCreateUserTest1"></include>
+                    <include name="LoginTest1"></include>
+                    <include name="LoginTestByCreateUserAndGenerateNewUser"></include>
+                    <include name="LoginTest2"></include>
+                    <include name="LoginTest4"></include>
+                    <include name="LoginByTokenTest5"></include>
+                    <include name="LoginBySignTest"></include>
+                    <include name="LoginByCreateUserTestBySameEuidAndSameGroupTagAndDifferentAppidAndParameterKeytpValueIsCaccAndParameterUnameValueIsCacc"></include>
+                    <include name="LoginByCreateUserTestByDifferentEuidAndDifferentGroupTagAndDifferentAppidAndParameterKeytpValueIsCaccAndParameterUnameValueIsCacc"></include>
+                    <include name="LoginByCreateUserTestBySameEuidAndSameGroupTagAndDifferentAppidAndParameterKeytpValueIsOpenidAndParameterUnameValueIsOpenid"></include>
+                    <include name="LoginByCreateUserTestByDifferentEuidAndDifferentGroupTagAndDifferentAppidAndParameterKeytpValueIsOpenidAndParameterUnameValueIsOpenid"></include>
+                    <include name="LoginByCreateUserTestBySameEuidAndSameGroupTagAndDifferentAppidAndParameterKeytpValueIsUnionidAndParameterUnameValueIsUnionid"></include>
+                    <include name="LoginByCreateUserTestByDifferentEuidAndDifferentGroupTagAndDifferentAppidAndParameterKeytpValueIsUnionidAndParameterUnameValueIsUnionid"></include>
+                    <include name="LoginByCreateUserTestBySameEuidAndSameGroupTagAndDifferentAppidAndParameterUnameAndParameterPasswd"></include>
+                    <include name="LoginByCreateUserTestByDifferentEuidAndDifferentGroupTagAndDifferentAppidAndParameterUnameAndParameterPasswd"></include>
+                    <include name="LoginByCreateUserTestBySameEuidAndSameGroupTagAndDifferentAppidAndParameterUnameValueIsTokenAndParameterKeytpValueIsToken"></include>
+                    <include name="LoginByCreateUserTestByDifferentEuidAndDifferentGroupTagAndDifferentAppidAndParameterUnameValueIsTokenAndParameterKeytpValueIsToken"></include>
+                    <include name="LoginByCreateUserTestByAddNewUserAndParameterStatisticsNotEmptyAndChannelNoIsLong"></include>
+                    <include name="LoginByCreateUserTestByParameterStatisticsNotEmptyAndChannelNoIsNormal"></include>
+                    <include name="LoginByCreateUserTestByParameterStatisticsNotEmptyAndChannelNoIsNormalAndGenerateOnlineTime"></include>
+                    <include name="LoginByCreateUserTestByAddNewUserAndParameterStatisticsNotEmptyAndChannelNoIsShort"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndReacheUpperLimit1"></include>
+                    <include name="LoginByExistUserAndParameterNormalUpperLimitAndReacheUpperLimit2"></include>
+                    <include name="LoginByExistUserAndParameterNormalUpperLimitAndReacheUpperLimit3"></include>
+                    <include name="LoginByExistUserAndParameterNormalUpperLimitAndReacheUpperLimit4"></include>
+                    <include name="LoginByExistUserAndParameterNormalUpperLimitAndReacheUpperLimit5"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndNotReacheUpperLimit1"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndReacheUpperLimit2"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndNotReacheUpperLimit2"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndReacheUpperLimit3"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndNotReacheUpperLimit3"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndReacheUpperLimit4"></include>
+                    <include name="LoginByAddNewUserAndParameterNormalUpperLimitAndNotReacheUpperLimit4"></include>
+                    <include name="LoginTestByLoginExistUserAndParameterNormalUpperLimitAndUnameLoginAndPasswdLogin"></include>
+<!--                    匿名登录（雪花登录）-->
+                    <include name="LoginByCreateUserXueHuaAndNotExistParameterStatistics"></include>
+                    <include name="LoginByCreateUserXueHuaAndNotExistParameterStatisticsAndRepeatLogin"></include>
+                    <include name="LoginByCreateUserXueHuaAndNotExistParameterStatisticsAndParameterKeytpValueIsWrong"></include>
+                    <include name="LoginByCreateUserXueHuaAndExistParameterStatisticsAndParameterKeytpValueIsWrong"></include>
+<!--                    游客登录-->
+                    <include name="LoginByCreateUserByParameterKeytpValueIsGuest"></include>
+                    <include name="LoginByCreateUserByGuestLogInAndGuestLogoutAndLogin"></include>
+                    <include name="LoginByCreateUserAndGuestFirstLogIn"></include>
+                    <include name="LoginByGuestNotFirstLogIn"></include>
+                    <include name="LoginByCreateUserAndSummationAndParameterGuestUpperLimitNotSetOrSetZero"></include>
+                    <include name="LoginByCreateUserAndParameterGuestUpperLimitSetFive"></include>
+                    <include name="LoginByCreateUserAndParameterGuestUpperLimitSetFiveAndBeforeGuestLogin1"></include>
+                    <include name="LoginByCreateUserAndParameterGuestUpperLimitSetFiveAndBeforeGuestLogin2"></include>
+                    <include name="LoginByParameterGuestPeriodValidSetOneAndNowMoreThanGuestPeriodValidValue1"></include>
+                    <include name="LoginByParameterGuestPeriodValidSetOneAndNowMoreThanGuestPeriodValidValue2"></include>
+<!--                    增加keytp=tencent方式登录，同时支持openid与unionid登录-->
+                    <include name="LoginByParameterKeytpValueIsTencentAndNewUserAndFirstLogin"></include>
+                    <include name="LoginByParameterKeytpValueIsTencentAndExistUserAndNotFirstLogin"></include>
+                    <include name="LoginByParameterKeytpValueIsTencentAndParameterUnameIsEmptyAndNotFirstLogin"></include>
+                    <include name="LoginByParameterUnameValueIsTokenAndParameterKeytpValueIsTencent"></include>
+                    <include name="LoginByParameterKeytpValueIsTencentAndNotExistValueUnionid"></include>
+                    <include name="LoginByParameterKeytpValueIsTencentAndNotExistValueOpenid"></include>
+                    <include name="LoginByParameterKeytpValueIsTencentAndNotExistValueOpenidAndNotExistValueUnionid"></include>
+                    <include name="LoginByParameterKeytpValueIsTencentAndParameterKeysValuesParameterUnameValuwIsRepeate"></include>
+                    <include name="LoginByParameterKeytpValueIsTencentAndParameterKeysValuesParameterUnameValuwIsNotRepeate"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

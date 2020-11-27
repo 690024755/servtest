@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UploadImageFormTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="UploadImageFormTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.UploadImageFormTest">
+                <methods>
+                    <include name="uploadImageFormTestByPngAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadImageFormTestByGifAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadImageFormTestByJpgAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadImageFormTestByGifAndParameterSourceValueIsMessageboard"></include>
+                    <include name="uploadImageFormTestByPngAndParameterSourceValueIsMessageboard"></include>
+                    <include name="uploadImageFormTestByJpgAndParameterSourceValueIsMessageboard"></include>
+                    <include name="uploadImageFormTestByJpgAndParameterSourceValueIsTest"></include>
+                    <include name="uploadImageFormTestByPictureSizeMoreThan2MAndParameterSourceValueIsMessageBoard"></include>
+                    <include name="uploadImageFormTestByPictureSizeMoreThan2MAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadImageFormTestByPictureSizeMoreThan3MAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadImageFormTestByUidAndToken"></include>
+                    <include name="uploadImageFormTestByExpireToken"></include>
+                    <include name="uploadImageFormTestByBmAppidAndAccessToken"></include>
+                    <include name="uploadImageFormTestByNotExistParameterAppid"></include>
+                    <include name="uploadImageFormTestByNotExistParameterSource"></include>
+
+                    <!--                    增加对权限验证-->
+                    <include name="uploadImageFormTestByOpenMethodAndUid"></include>
+                    <include name="uploadImageFormTestByOpenMethodAndBmAppid"></include>
+                    <include name="uploadImageFormTestByAuthMethodAndUid"></include>
+                    <include name="uploadImageFormTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="uploadImageFormTestByAuthMethodAndBmAppid"></include>
+                    <include name="uploadImageFormTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

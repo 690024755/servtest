@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DeleteImageTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="DeleteImageTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.DeleteImageTest">
+                <methods>
+                    <include name="deleteimageTest"></include>
+                    <include name="deleteimageTestByNotExistPicture"></include>
+                    <include name="deleteimageTestByEmptyUrl"></include>
+                    <include name="deleteimageTestByNotParameterUrl"></include>
+                    <include name="deleteimageTestByUidAndToken"></include>
+                    <include name="deleteimageTestByBmappidAndAccessToken"></include>
+                    <include name="deleteimageTestByExistPicture"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

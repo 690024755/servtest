@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NewLabTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="NewLabTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.NewLabTest">
+                <methods>
+                    <include name="newLabTestByReceiveTopic"></include>
+                    <include name="newLabTestByAddSameNameAndSameMaintype"></include>
+                    <include name="newLabTestByAddSameNameAndDiffrentMaintype"></include>
+                    <include name="newLabTestByParameterNameValueIsLong"></include>
+                    <include name="newLabTestByParameterNameValueIsEmotion"></include>
+                    <include name="newLabTestByParameterNameValueIsTab"></include>
+                    <include name="newLabTestByParameterNameValueIsTabAndCharacter"></include>
+                    <include name="newLabTestByNotExistParameterName"></include>
+                    <include name="newLabTestByNotExistParameterMaintype"></include>
+                    <include name="newLabTestByDeleteLabAndAddDeleteLab"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

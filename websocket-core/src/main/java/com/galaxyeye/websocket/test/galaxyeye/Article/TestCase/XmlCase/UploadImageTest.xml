@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UploadImageTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="UploadImageTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.UploadImageTest">
+                <methods>
+                    <include name="uploadimageTestByGifAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadimageTestByPngAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadimageTestByJpgAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadimageTestByGifAndParameterSourceValueIsMessageboard"></include>
+                    <include name="uploadimageTestByPngAndParameterSourceValueIsMessageboard"></include>
+                    <include name="uploadimageTestByJpgAndParameterSourceValueIsMessageboard"></include>
+                    <include name="uploadimageTestByJpgAndParameterSourceValueIsTest"></include>
+                    <include name="uploadimageTestByPictureSizeEqual3MAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadimageTestByPictureSizeEqual5MAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadimageTestByPictureSizeEqual3poit2MAndParameterSourceValueIsArticle"></include>
+                    <include name="uploadimageTestByPictureSizeEqual3MAndParameterSourceValueIsMessageBoard"></include>
+                    <include name="uploadimageTestByUidAndToken"></include>
+                    <include name="uploadimageTestByExpireToken"></include>
+                    <include name="uploadimageTestByBmAppidAndAccessToken"></include>
+                    <include name="uploadimageTestByNotExistParameterAppid"></include>
+                    <include name="uploadimageTestByNotExistParameterSource"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="uploadimageTestByOpenMethodAndUid"></include>
+                    <include name="uploadimageTestByOpenMethodAndBmAppid"></include>
+                    <include name="uploadimageTestByAuthMethodAndUid"></include>
+                    <include name="uploadimageTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="uploadimageTestByAuthMethodAndBmAppid"></include>
+                    <include name="uploadimageTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+
+                    <include name="uploadimageTestByHeaderContainIpValueIsInvalid"></include>
+                    <include name="uploadimageTestByHeaderContainIpValueIsEmpty"></include>
+                    <include name="uploadimageTestByHeaderContainNoIp"></include>
+                    <include name="uploadimageTestByHeaderContainSingleIp"></include>
+                    <include name="uploadimageTestByHeaderContainMutiIp"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

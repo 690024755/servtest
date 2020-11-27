@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GuestBookTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GuestBookTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.GuestBookTest">
+                <methods>
+                    <include name="createmessageTest"></include>
+                    <include name="replymessageTest"></include>
+                    <include name="getmessageboxlistTest"></include>
+                    <include name="getmessagelistTest"></include>
+                    <include name="readmessageTest"></include>
+                    <include name="fetchmessageTest"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

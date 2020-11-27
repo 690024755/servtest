@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:amq="http://activemq.apache.org/schema/core"
+       xmlns:jms ="http://www.springframework.org/schema/jms"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd
+   	http://www.springframework.org/schema/jee
+   	http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+   	http://www.springframework.org/schema/tx
+   	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+    http://www.springframework.org/schema/jms
+    http://www.springframework.org/schema/jms/spring-jms-4.3.xsd
+    http://activemq.apache.org/schema/core
+    http://activemq.apache.org/schema/core/activemq-core.xsd"
+       default-lazy-init="true" default-autowire="byName">
+    <bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://172.16.0.25:61616"></property>
+        <property name="userName" value="admin"></property>
+        <property name="password" value="admin"></property>
+    </bean>
+    <bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="activeMQConnectionFactory" ></property>
+        <property name="defaultDestinationName" >
+            <value>
+                ${test.active.mq.queue}
+            </value>
+        </property>
+    </bean>
+    <bean id="testProducer" class="com.galaxyeye.websocket.tool.mq.TestProducer" destroy-method="close" init-method="intiMqPerproty">
+        <property name="MQ_QUEUE" >
+            <value>
+                ${test.active.mq.queue}
+            </value>
+        </property>
+    </bean>
+    <bean id="testReciever" class="com.galaxyeye.websocket.tool.mq.TestReciever" destroy-method="close">
+        <property name="recieveMessage" ref="jmsQueueTemplate"></property>
+    </bean>
+
+</beans>

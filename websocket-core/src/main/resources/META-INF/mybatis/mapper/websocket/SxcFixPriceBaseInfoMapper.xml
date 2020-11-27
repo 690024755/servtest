@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcFixPriceBaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcFixPriceBaseInfo">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="item_id" jdbcType="INTEGER" property="itemId" />
+    <result column="sku_id" jdbcType="INTEGER" property="skuId" />
+    <result column="spu_id" jdbcType="INTEGER" property="spuId" />
+    <result column="spu_name" jdbcType="VARCHAR" property="spuName" />
+    <result column="city_code" jdbcType="INTEGER" property="cityCode" />
+    <result column="purchase_price" jdbcType="BIGINT" property="purchasePrice" />
+    <result column="purchase_time" jdbcType="TIMESTAMP" property="purchaseTime" />
+    <result column="purchaser_id" jdbcType="INTEGER" property="purchaserId" />
+    <result column="purchaser_name" jdbcType="VARCHAR" property="purchaserName" />
+    <result column="purchaser_mobile_phone" jdbcType="VARCHAR" property="purchaserMobilePhone" />
+    <result column="purchase_inquiry_price" jdbcType="BIGINT" property="purchaseInquiryPrice" />
+    <result column="market_inquiry_price" jdbcType="BIGINT" property="marketInquiryPrice" />
+    <result column="inquiry_time" jdbcType="TIMESTAMP" property="inquiryTime" />
+    <result column="inquirier_id" jdbcType="INTEGER" property="inquirierId" />
+    <result column="inquirier_name" jdbcType="VARCHAR" property="inquirierName" />
+    <result column="inquirier_mobile_phone" jdbcType="VARCHAR" property="inquirierMobilePhone" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="spare_stock_num" jdbcType="INTEGER" property="spareStockNum" />
+    <result column="spare_sales_time" jdbcType="DOUBLE" property="spareSalesTime" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="inquiry_tax_fee" jdbcType="BIGINT" property="inquiryTaxFee" />
+    <result column="purchase_order_type" jdbcType="INTEGER" property="purchaseOrderType" />
+    <result column="marketing_activity_info" jdbcType="VARCHAR" property="marketingActivityInfo" />
+    <result column="sales_info" jdbcType="VARCHAR" property="salesInfo" />
+    <result column="market_inquiry_price_flag" jdbcType="INTEGER" property="marketInquiryPriceFlag" />
+    <result column="freight" jdbcType="BIGINT" property="freight" />
+    <result column="market_sales_info" jdbcType="VARCHAR" property="marketSalesInfo" />
+    <result column="features" jdbcType="VARCHAR" property="features" />
+  </resultMap>
+    <sql id="tableName">
+		sxc_ic.sxc_fix_price_base_info
+	</sql>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, item_id, sku_id, spu_id, spu_name, city_code, purchase_price, purchase_time, 
+    purchaser_id, purchaser_name, purchaser_mobile_phone, purchase_inquiry_price, market_inquiry_price, 
+    inquiry_time, inquirier_id, inquirier_name, inquirier_mobile_phone, remark, spare_stock_num, 
+    spare_sales_time, gmt_create, gmt_modified, state, inquiry_tax_fee, purchase_order_type, 
+    marketing_activity_info, sales_info, market_inquiry_price_flag, freight, market_sales_info, 
+    features
+  </sql>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.SxcFixPriceBaseInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.SxcFixPriceBaseInfo">
+    insert into <include refid="tableName" /> (id, item_id, sku_id,
+      spu_id, spu_name, city_code, 
+      purchase_price, purchase_time, purchaser_id, 
+      purchaser_name, purchaser_mobile_phone, purchase_inquiry_price, 
+      market_inquiry_price, inquiry_time, inquirier_id, 
+      inquirier_name, inquirier_mobile_phone, remark, 
+      spare_stock_num, spare_sales_time, gmt_create, 
+      gmt_modified, state, inquiry_tax_fee, 
+      purchase_order_type, marketing_activity_info, 
+      sales_info, market_inquiry_price_flag, freight, 
+      market_sales_info, features)
+    values (#{id,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}, #{skuId,jdbcType=INTEGER}, 
+      #{spuId,jdbcType=INTEGER}, #{spuName,jdbcType=VARCHAR}, #{cityCode,jdbcType=INTEGER}, 
+      #{purchasePrice,jdbcType=BIGINT}, #{purchaseTime,jdbcType=TIMESTAMP}, #{purchaserId,jdbcType=INTEGER}, 
+      #{purchaserName,jdbcType=VARCHAR}, #{purchaserMobilePhone,jdbcType=VARCHAR}, #{purchaseInquiryPrice,jdbcType=BIGINT}, 
+      #{marketInquiryPrice,jdbcType=BIGINT}, #{inquiryTime,jdbcType=TIMESTAMP}, #{inquirierId,jdbcType=INTEGER}, 
+      #{inquirierName,jdbcType=VARCHAR}, #{inquirierMobilePhone,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{spareStockNum,jdbcType=INTEGER}, #{spareSalesTime,jdbcType=DOUBLE}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{inquiryTaxFee,jdbcType=BIGINT}, 
+      #{purchaseOrderType,jdbcType=INTEGER}, #{marketingActivityInfo,jdbcType=VARCHAR}, 
+      #{salesInfo,jdbcType=VARCHAR}, #{marketInquiryPriceFlag,jdbcType=INTEGER}, #{freight,jdbcType=BIGINT}, 
+      #{marketSalesInfo,jdbcType=VARCHAR}, #{features,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.SxcFixPriceBaseInfo">
+    insert into <include refid="tableName" />
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="itemId != null">
+        item_id,
+      </if>
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="spuName != null">
+        spu_name,
+      </if>
+      <if test="cityCode != null">
+        city_code,
+      </if>
+      <if test="purchasePrice != null">
+        purchase_price,
+      </if>
+      <if test="purchaseTime != null">
+        purchase_time,
+      </if>
+      <if test="purchaserId != null">
+        purchaser_id,
+      </if>
+      <if test="purchaserName != null">
+        purchaser_name,
+      </if>
+      <if test="purchaserMobilePhone != null">
+        purchaser_mobile_phone,
+      </if>
+      <if test="purchaseInquiryPrice != null">
+        purchase_inquiry_price,
+      </if>
+      <if test="marketInquiryPrice != null">
+        market_inquiry_price,
+      </if>
+      <if test="inquiryTime != null">
+        inquiry_time,
+      </if>
+      <if test="inquirierId != null">
+        inquirier_id,
+      </if>
+      <if test="inquirierName != null">
+        inquirier_name,
+      </if>
+      <if test="inquirierMobilePhone != null">
+        inquirier_mobile_phone,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="spareStockNum != null">
+        spare_stock_num,
+      </if>
+      <if test="spareSalesTime != null">
+        spare_sales_time,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="inquiryTaxFee != null">
+        inquiry_tax_fee,
+      </if>
+      <if test="purchaseOrderType != null">
+        purchase_order_type,
+      </if>
+      <if test="marketingActivityInfo != null">
+        marketing_activity_info,
+      </if>
+      <if test="salesInfo != null">
+        sales_info,
+      </if>
+      <if test="marketInquiryPriceFlag != null">
+        market_inquiry_price_flag,
+      </if>
+      <if test="freight != null">
+        freight,
+      </if>
+      <if test="marketSalesInfo != null">
+        market_sales_info,
+      </if>
+      <if test="features != null">
+        features,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="itemId != null">
+        #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=INTEGER},
+      </if>
+      <if test="spuName != null">
+        #{spuName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=INTEGER},
+      </if>
+      <if test="purchasePrice != null">
+        #{purchasePrice,jdbcType=BIGINT},
+      </if>
+      <if test="purchaseTime != null">
+        #{purchaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purchaserId != null">
+        #{purchaserId,jdbcType=INTEGER},
+      </if>
+      <if test="purchaserName != null">
+        #{purchaserName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserMobilePhone != null">
+        #{purchaserMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseInquiryPrice != null">
+        #{purchaseInquiryPrice,jdbcType=BIGINT},
+      </if>
+      <if test="marketInquiryPrice != null">
+        #{marketInquiryPrice,jdbcType=BIGINT},
+      </if>
+      <if test="inquiryTime != null">
+        #{inquiryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inquirierId != null">
+        #{inquirierId,jdbcType=INTEGER},
+      </if>
+      <if test="inquirierName != null">
+        #{inquirierName,jdbcType=VARCHAR},
+      </if>
+      <if test="inquirierMobilePhone != null">
+        #{inquirierMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="spareStockNum != null">
+        #{spareStockNum,jdbcType=INTEGER},
+      </if>
+      <if test="spareSalesTime != null">
+        #{spareSalesTime,jdbcType=DOUBLE},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="inquiryTaxFee != null">
+        #{inquiryTaxFee,jdbcType=BIGINT},
+      </if>
+      <if test="purchaseOrderType != null">
+        #{purchaseOrderType,jdbcType=INTEGER},
+      </if>
+      <if test="marketingActivityInfo != null">
+        #{marketingActivityInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="salesInfo != null">
+        #{salesInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="marketInquiryPriceFlag != null">
+        #{marketInquiryPriceFlag,jdbcType=INTEGER},
+      </if>
+      <if test="freight != null">
+        #{freight,jdbcType=BIGINT},
+      </if>
+      <if test="marketSalesInfo != null">
+        #{marketSalesInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="features != null">
+        #{features,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map">
+    update <include refid="tableName" />
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.itemId != null">
+        item_id = #{record.itemId,jdbcType=INTEGER},
+      </if>
+      <if test="record.skuId != null">
+        sku_id = #{record.skuId,jdbcType=INTEGER},
+      </if>
+      <if test="record.spuId != null">
+        spu_id = #{record.spuId,jdbcType=INTEGER},
+      </if>
+      <if test="record.spuName != null">
+        spu_name = #{record.spuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityCode != null">
+        city_code = #{record.cityCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchasePrice != null">
+        purchase_price = #{record.purchasePrice,jdbcType=BIGINT},
+      </if>
+      <if test="record.purchaseTime != null">
+        purchase_time = #{record.purchaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.purchaserId != null">
+        purchaser_id = #{record.purchaserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchaserName != null">
+        purchaser_name = #{record.purchaserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchaserMobilePhone != null">
+        purchaser_mobile_phone = #{record.purchaserMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchaseInquiryPrice != null">
+        purchase_inquiry_price = #{record.purchaseInquiryPrice,jdbcType=BIGINT},
+      </if>
+      <if test="record.marketInquiryPrice != null">
+        market_inquiry_price = #{record.marketInquiryPrice,jdbcType=BIGINT},
+      </if>
+      <if test="record.inquiryTime != null">
+        inquiry_time = #{record.inquiryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.inquirierId != null">
+        inquirier_id = #{record.inquirierId,jdbcType=INTEGER},
+      </if>
+      <if test="record.inquirierName != null">
+        inquirier_name = #{record.inquirierName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inquirierMobilePhone != null">
+        inquirier_mobile_phone = #{record.inquirierMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spareStockNum != null">
+        spare_stock_num = #{record.spareStockNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.spareSalesTime != null">
+        spare_sales_time = #{record.spareSalesTime,jdbcType=DOUBLE},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.inquiryTaxFee != null">
+        inquiry_tax_fee = #{record.inquiryTaxFee,jdbcType=BIGINT},
+      </if>
+      <if test="record.purchaseOrderType != null">
+        purchase_order_type = #{record.purchaseOrderType,jdbcType=INTEGER},
+      </if>
+      <if test="record.marketingActivityInfo != null">
+        marketing_activity_info = #{record.marketingActivityInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesInfo != null">
+        sales_info = #{record.salesInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marketInquiryPriceFlag != null">
+        market_inquiry_price_flag = #{record.marketInquiryPriceFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.freight != null">
+        freight = #{record.freight,jdbcType=BIGINT},
+      </if>
+      <if test="record.marketSalesInfo != null">
+        market_sales_info = #{record.marketSalesInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.features != null">
+        features = #{record.features,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update <include refid="tableName" />
+    set id = #{record.id,jdbcType=INTEGER},
+      item_id = #{record.itemId,jdbcType=INTEGER},
+      sku_id = #{record.skuId,jdbcType=INTEGER},
+      spu_id = #{record.spuId,jdbcType=INTEGER},
+      spu_name = #{record.spuName,jdbcType=VARCHAR},
+      city_code = #{record.cityCode,jdbcType=INTEGER},
+      purchase_price = #{record.purchasePrice,jdbcType=BIGINT},
+      purchase_time = #{record.purchaseTime,jdbcType=TIMESTAMP},
+      purchaser_id = #{record.purchaserId,jdbcType=INTEGER},
+      purchaser_name = #{record.purchaserName,jdbcType=VARCHAR},
+      purchaser_mobile_phone = #{record.purchaserMobilePhone,jdbcType=VARCHAR},
+      purchase_inquiry_price = #{record.purchaseInquiryPrice,jdbcType=BIGINT},
+      market_inquiry_price = #{record.marketInquiryPrice,jdbcType=BIGINT},
+      inquiry_time = #{record.inquiryTime,jdbcType=TIMESTAMP},
+      inquirier_id = #{record.inquirierId,jdbcType=INTEGER},
+      inquirier_name = #{record.inquirierName,jdbcType=VARCHAR},
+      inquirier_mobile_phone = #{record.inquirierMobilePhone,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      spare_stock_num = #{record.spareStockNum,jdbcType=INTEGER},
+      spare_sales_time = #{record.spareSalesTime,jdbcType=DOUBLE},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      state = #{record.state,jdbcType=INTEGER},
+      inquiry_tax_fee = #{record.inquiryTaxFee,jdbcType=BIGINT},
+      purchase_order_type = #{record.purchaseOrderType,jdbcType=INTEGER},
+      marketing_activity_info = #{record.marketingActivityInfo,jdbcType=VARCHAR},
+      sales_info = #{record.salesInfo,jdbcType=VARCHAR},
+      market_inquiry_price_flag = #{record.marketInquiryPriceFlag,jdbcType=INTEGER},
+      freight = #{record.freight,jdbcType=BIGINT},
+      market_sales_info = #{record.marketSalesInfo,jdbcType=VARCHAR},
+      features = #{record.features,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

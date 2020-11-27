@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.TrafficpoliceRoomMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceRoom">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="union_id" jdbcType="VARCHAR" property="unionId" />
+    <result column="remote_room_id" jdbcType="BIGINT" property="remoteRoomId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="contact" jdbcType="VARCHAR" property="contact" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="unread_count" jdbcType="INTEGER" property="unreadCount" />
+    <result column="read_at" jdbcType="TIMESTAMP" property="readAt" />
+    <result column="replied_at" jdbcType="TIMESTAMP" property="repliedAt" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="is_finished" jdbcType="TINYINT" property="isFinished" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="tableName">
+		businessdb.trafficpolice_room
+	</sql>
+  <sql id="Base_Column_List">
+    id, union_id, remote_room_id, name, contact, content, created_at, updated_at, unread_count, 
+    read_at, replied_at, appid, is_finished
+  </sql>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceRoomExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceRoomExample">
+    delete from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceRoom">
+    insert into <include refid="tableName" /> (id, union_id, remote_room_id,
+      name, contact, content, 
+      created_at, updated_at, unread_count, 
+      read_at, replied_at, appid, 
+      is_finished)
+    values (#{id,jdbcType=BIGINT}, #{unionId,jdbcType=VARCHAR}, #{remoteRoomId,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{unreadCount,jdbcType=INTEGER}, 
+      #{readAt,jdbcType=TIMESTAMP}, #{repliedAt,jdbcType=TIMESTAMP}, #{appid,jdbcType=VARCHAR}, 
+      #{isFinished,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceRoom">
+    insert into <include refid="tableName" />
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="unionId != null">
+        union_id,
+      </if>
+      <if test="remoteRoomId != null">
+        remote_room_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="contact != null">
+        contact,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="unreadCount != null">
+        unread_count,
+      </if>
+      <if test="readAt != null">
+        read_at,
+      </if>
+      <if test="repliedAt != null">
+        replied_at,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="isFinished != null">
+        is_finished,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="unionId != null">
+        #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteRoomId != null">
+        #{remoteRoomId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unreadCount != null">
+        #{unreadCount,jdbcType=INTEGER},
+      </if>
+      <if test="readAt != null">
+        #{readAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repliedAt != null">
+        #{repliedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="isFinished != null">
+        #{isFinished,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceRoomExample" resultType="java.lang.Long">
+    select count(*) from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update <include refid="tableName" />
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.unionId != null">
+        union_id = #{record.unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remoteRoomId != null">
+        remote_room_id = #{record.remoteRoomId,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contact != null">
+        contact = #{record.contact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdAt != null">
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedAt != null">
+        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.unreadCount != null">
+        unread_count = #{record.unreadCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.readAt != null">
+        read_at = #{record.readAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.repliedAt != null">
+        replied_at = #{record.repliedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appid != null">
+        appid = #{record.appid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isFinished != null">
+        is_finished = #{record.isFinished,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update <include refid="tableName" />
+    set id = #{record.id,jdbcType=BIGINT},
+      union_id = #{record.unionId,jdbcType=VARCHAR},
+      remote_room_id = #{record.remoteRoomId,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      contact = #{record.contact,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      unread_count = #{record.unreadCount,jdbcType=INTEGER},
+      read_at = #{record.readAt,jdbcType=TIMESTAMP},
+      replied_at = #{record.repliedAt,jdbcType=TIMESTAMP},
+      appid = #{record.appid,jdbcType=VARCHAR},
+      is_finished = #{record.isFinished,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

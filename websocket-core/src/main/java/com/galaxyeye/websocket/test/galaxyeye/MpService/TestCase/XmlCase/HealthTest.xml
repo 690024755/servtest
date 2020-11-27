@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HealthTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="HealthTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.HealthTest">
+                <methods>
+                    <include name="answerquestionTest"></include>
+                    <include name="getuserinfoTest"></include>
+                    <include name="completequestionTest"></include>
+                    <include name="joinhealthplanTest"></include>
+                    <include name="completehealthplanTest"></include>
+                    <include name="listhealthplanTest"></include>
+                    <include name="gethealthplandayTest"></include>
+                    <include name="getdiseasewikiTest"></include>
+                    <include name="deletehealthplanTest"></include>
+                    <include name="readarticleTest"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

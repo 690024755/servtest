@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcItemSkuMapper">
+  <resultMap id="SxcItemSkuResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcItemSku">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="spu_id" jdbcType="INTEGER" property="spuId" />
+    <result column="sell_city" jdbcType="VARCHAR" property="sellCity" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="estimate_stock" jdbcType="INTEGER" property="estimateStock" />
+    <result column="sold_stock" jdbcType="INTEGER" property="soldStock" />
+    <result column="limit_per" jdbcType="INTEGER" property="limitPer" />
+    <result column="is_relation_sale" jdbcType="INTEGER" property="isRelationSale" />
+    <result column="city_code" jdbcType="INTEGER" property="cityCode" />
+    <result column="features" jdbcType="VARCHAR" property="features" />
+    <result column="packaging_type" jdbcType="INTEGER" property="packagingType" />
+    <result column="item_area" jdbcType="VARCHAR" property="itemArea" />
+    <result column="cat_id" jdbcType="INTEGER" property="catId" />
+    <result column="local_title" jdbcType="VARCHAR" property="localTitle" />
+    <result column="item_unit" jdbcType="INTEGER" property="itemUnit" />
+    <result column="product_weight" jdbcType="DOUBLE" property="productWeight" />
+    <result column="grade" jdbcType="INTEGER" property="grade" />
+    <result column="item_species" jdbcType="VARCHAR" property="itemSpecies" />
+    <result column="spu_name" jdbcType="VARCHAR" property="spuName" />
+    <result column="shipping_cost" jdbcType="INTEGER" property="shippingCost" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="lock_status" jdbcType="INTEGER" property="lockStatus" />
+    <result column="item_type" jdbcType="INTEGER" property="itemType" />
+    <result column="properties" jdbcType="VARCHAR" property="properties" />
+    <result column="prod_area_code" jdbcType="INTEGER" property="prodAreaCode" />
+    <result column="stock_sku_id" jdbcType="INTEGER" property="stockSkuId" />
+    <result column="channel_id" jdbcType="INTEGER" property="channelId" />
+    <result column="channel_name" jdbcType="VARCHAR" property="channelName" />
+  </resultMap>
+    <sql id="tableName">
+		sxc_ic.sxc_item_sku
+	</sql>
+    <sql id="columns">
+	    id,spu_id,sell_city,status,price,state,gmt_create,gmt_modified,
+        estimate_stock,sold_stock,limit_per,is_relation_sale,city_code,features,packaging_type,item_area,
+        cat_id,local_title,item_unit,product_weight,grade,item_species,spu_name,shipping_cost,
+        version,lock_status,item_type,properties,prod_area_code,stock_sku_id,channel_id,channel_name
+	</sql>
+    <select id="getByItemId" resultMap="SxcItemSkuResultMap" parameterType = "INTEGER">
+        select <include refid="columns" /> from
+        <include refid="tableName" />
+        where id=#{id,jdbcType = INTEGER} and state=1
+    </select>
+    <update id="modifyCutffTime" parameterType = "HashMap">
+        UPDATE <include refid="tableName" /> set features=#{features}  where id=#{ItemId}
+        and state=1
+    </update>
+</mapper>

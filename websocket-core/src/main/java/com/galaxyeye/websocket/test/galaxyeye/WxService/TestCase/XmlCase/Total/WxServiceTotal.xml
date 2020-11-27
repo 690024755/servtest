@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="WxServiceTotal" parallel="classes" thread-count="1">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+    <suite-files>
+        <suite-file path="../WxTemplateMsgTest.xml"></suite-file>
+        <suite-file path="../WxServiceHeartBeatTest.xml"></suite-file>
+        <suite-file path="../WxServiceLoginTest.xml"></suite-file>
+        <suite-file path="../WxServiceLogoutTest.xml"></suite-file>
+
+<!--        客户聊天相关接口-->
+        <suite-file path="../KfConnTest.xml"></suite-file>
+        <suite-file path="../KfChatTest.xml"></suite-file>
+        <suite-file path="../QueueInfoReqTest.xml"></suite-file>
+        <suite-file path="../QuitQueueReqTest.xml"></suite-file>
+        <suite-file path="../QuitKfReqTest.xml"></suite-file>
+        <suite-file path="../FeedbackRespTest.xml"></suite-file>
+
+
+    </suite-files>
+</suite>

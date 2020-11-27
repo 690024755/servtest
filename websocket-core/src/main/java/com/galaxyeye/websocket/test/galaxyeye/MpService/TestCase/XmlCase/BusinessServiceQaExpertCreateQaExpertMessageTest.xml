@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceQaExpertCreateQaExpertMessageTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceQaExpertCreateQaExpertMessageTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceQaExpertCreateQaExpertMessageTest">
+                <methods>
+                    <include name="createqaexpertmessageTestByOpenMethodAndUid"></include>
+                    <include name="createqaexpertmessageTestByOpenMethodAndBmAppid"></include>
+                    <include name="createqaexpertmessageTestByAuthMethodAndUid"></include>
+                    <include name="createqaexpertmessageTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="createqaexpertmessageTestByAuthMethodAndBmAppid"></include>
+                    <include name="createqaexpertmessageTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                    <include name="createqaexpertmessageTestByErrorExpertAppid"></include>
+                    <include name="createqaexpertmessageTestByNotExistParameterExpertAppid"></include>
+                    <include name="createqaexpertmessageTestByParameterExpertAppidValueIsEmpty"></include>
+                    <include name="createqaexpertmessageTestByNotExistParameterNickname"></include>
+                    <include name="createqaexpertmessageTestByNotExistParameterType"></include>
+                    <include name="createqaexpertmessageTestByNotExistParameterContent"></include>
+                    <include name="createqaexpertmessageTestByParameterContentValueIsEmpty"></include>
+                    <include name="createqaexpertmessageTestByParameterContentValueIsLarge"></include>
+                    <include name="createqaexpertmessageTestByParameterContentValueIsEmotion"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ResetPassTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="ResetPassTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.ResetPassTest">
+                <methods>
+                    <include name="resetPassTest"></include>
+                    <include name="resetPassTestByNotExistUser"></include>
+                    <include name="resetPassTestByNewPasswdEqualToOldPasswd"></include>
+                    <include name="resetPassTestByNewPasswdIsShort"></include>
+                    <include name="resetPassTestByNewPasswdIsLong"></include>
+                    <include name="resetPassTestByNewPasswdIsEmpty"></include>
+                    <include name="resetPassTestByParameterUnameIsNotExist"></include>
+                    <include name="resetPassTestByParameterAppidIsNotExist"></include>
+                    <include name="resetPassTestByParameterPasswdIsNotExist"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

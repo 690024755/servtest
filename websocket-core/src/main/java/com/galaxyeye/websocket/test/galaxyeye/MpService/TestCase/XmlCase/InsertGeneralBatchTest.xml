@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="InsertGeneralBatchTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="InsertGeneralBatchTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.InsertGeneralBatchTest">
+                <methods>
+                    <include name="insertgeneralbatchTestByTwo"></include>
+                    <include name="insertgeneralbatchTestByOne"></include>
+                    <include name="insertgeneralbatchTestByUidAndToken"></include>
+                    <include name="insertgeneralbatchTestByBmAppidAndAccessToken"></include>
+                    <include name="insertgeneralbatchTestByRepeatAdd"></include>
+                    <include name="insertgeneralbatchTestByAddEmptyConfig"></include>
+                    <include name="insertgeneralbatchTestByNewApp"></include>
+                    <include name="insertgeneralbatchTestByOldApp"></include>
+                    <include name="insertgeneralbatchTestByNewAppValue"></include>
+                    <include name="insertgeneralbatchTestByNotExistNewApp"></include>
+                    <include name="insertgeneralbatchTestByNotExistAppid"></include>
+                    <include name="insertgeneralbatchTestByNotExistConfAppid"></include>
+                    <include name="insertgeneralbatchTestByNotExistenvEnv"></include>
+                    <include name="insertgeneralbatchTestByNotExistVersion"></include>
+                    <include name="insertgeneralbatchTestByNotExistConfig"></include>
+                    <include name="insertgeneralbatchTestByNotExistKey"></include>
+                    <include name="insertgeneralbatchTestByNotExistData"></include>
+                    <include name="insertgeneralbatchTestByNotExistComment"></include>
+                    <include name="insertgeneralbatchTestByNotExistVerify"></include>
+                    <include name="insertgeneralbatchTestByNotExistEnable"></include>
+                    <include name="insertgeneralbatchTestByNotExistEditor"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetAppidTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetAppidTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.GetAppidTest">
+                <methods>
+                    <include name="getAppidTestByExistAppidRecord"></include>
+                    <include name="getAppidTestByNotExistAppidRecord"></include>
+                    <include name="getAppidTestByParameterAppidNotExist"></include>
+                    <include name="getAppidTestByParameterBmAppidNotExist"></include>
+                    <include name="getAppidTestByAndAddParameterGuestUpperLimitAndAddParameterNormalUpperLimitAndAddParameterGuestPeriodValid"></include>
+                    <include name="getAppidTestByAllocateAppid"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

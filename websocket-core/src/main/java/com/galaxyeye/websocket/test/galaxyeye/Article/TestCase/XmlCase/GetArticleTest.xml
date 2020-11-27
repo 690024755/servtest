@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetArticleTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetArticleTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.GetArticleTest">
+                <methods>
+                    <include name="getarticleTestByBmAppidAndAccessToken"></include>
+                    <include name="getarticleTestByUidAndToken"></include>
+                    <include name="getarticleTestByParameterIdIsExistAndParameterTitleIsExist"></include>
+                    <include name="getarticleTestByParameterIdIsExistAndParameterTitleIsNotExist"></include>
+                    <include name="getarticleTestByNotExistParameterIdAndParameterTitleIsExist"></include>
+                    <include name="getarticleTestByGetNotExistArticle"></include>
+                    <include name="getarticleTestByParameterDataFormatIsList"></include>
+                    <include name="getarticleTestByParameterDataFormatIsBody"></include>
+                    <include name="getarticleTestByTitleIsLike"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="getarticleTestByOpenMethodAndUid"></include>
+                    <include name="getarticleTestByOpenMethodAndBmAppid"></include>
+                    <include name="getarticleTestByAuthMethodAndUid"></include>
+                    <include name="getarticleTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="getarticleTestByAuthMethodAndBmAppid"></include>
+                    <include name="getarticleTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

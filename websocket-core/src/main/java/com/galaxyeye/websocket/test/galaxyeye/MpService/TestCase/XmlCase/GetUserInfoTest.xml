@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetUserInfoTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetUserInfoTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.GetUserInfoTest">
+                <methods>
+                    <include name="getUserInfoTestByNewUser"></include>
+                    <include name="getUserInfoTestByOldUser"></include>
+                    <include name="getUserInfoTestByUidAndToken"></include>
+                    <include name="getUserInfoTestByBmAppidAndAccessToken"></include>
+                    <include name="getUserInfoTestByExpireToken"></include>
+                    <include name="getUserInfoTestByNotExistParameterAppid"></include>
+                    <include name="getUserInfoTestByOpenMethodAndUid"></include>
+                    <include name="getUserInfoTestByOpenMethodAndBmAppid"></include>
+                    <include name="getUserInfoTestByAuthMethodAndUid"></include>
+                    <include name="getUserInfoTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="getUserInfoTestByAuthMethodAndBmAppid"></include>
+                    <include name="getUserInfoTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

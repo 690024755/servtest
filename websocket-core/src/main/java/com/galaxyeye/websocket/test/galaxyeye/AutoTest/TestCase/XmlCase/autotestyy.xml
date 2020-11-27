@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="autotestyy" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="autotestyy">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.AutoTest.TestCase.autotestyy">
+                <methods>
+                    <include name="test1"></include>
+                    <include name="test2"></include>
+                    <include name="test3"></include>
+                    <include name="test4"></include>
+                    <include name="test5"></include>
+                    <include name="test6"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />-->
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter" />-->
+<!--        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />-->
+    </listeners>
+</suite>

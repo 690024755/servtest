@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.TrafficpoliceQuestionMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceQuestion">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="statement" jdbcType="VARCHAR" property="statement" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceQuestion">
+    <result column="option" jdbcType="LONGVARCHAR" property="option" />
+  </resultMap>
+  <sql id="tableName">
+		businessdb.trafficpolice_question
+	</sql>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, `type`, statement, image, answer, created_at, deleted_at
+  </sql>
+  <sql id="Blob_Column_List">
+    `option`
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceQuestionExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceQuestionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+
+  <select id="selectAll" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceQuestionExample" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+  </select>
+
+
+  <delete id="deleteByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceQuestionExample">
+    delete from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceQuestion">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into <include refid="tableName" /> (`type`, statement, image,
+      answer, created_at, deleted_at, 
+      `option`)
+    values (#{type,jdbcType=TINYINT}, #{statement,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}, 
+      #{option,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceQuestion">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into <include refid="tableName" />
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="statement != null">
+        statement,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="deletedAt != null">
+        deleted_at,
+      </if>
+      <if test="option != null">
+        `option`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="statement != null">
+        #{statement,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null">
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="option != null">
+        #{option,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TrafficpoliceQuestionExample" resultType="java.lang.Long">
+    select count(*) from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update <include refid="tableName" />
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.type != null">
+        `type` = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.statement != null">
+        statement = #{record.statement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.image != null">
+        image = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answer != null">
+        answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdAt != null">
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+        deleted_at = #{record.deletedAt,jdbcType=TIMESTAMP},
+      <if test="record.option != null">
+        `option` = #{record.option,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+
+  <update id="updateByAllDeleteTimeIsNull" parameterType="map">
+    update <include refid="tableName" />
+    <set>
+      deleted_at = null
+    </set>
+  </update>
+
+
+
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update <include refid="tableName" />
+    set id = #{record.id,jdbcType=BIGINT},
+      `type` = #{record.type,jdbcType=TINYINT},
+      statement = #{record.statement,jdbcType=VARCHAR},
+      image = #{record.image,jdbcType=VARCHAR},
+      answer = #{record.answer,jdbcType=VARCHAR},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      deleted_at = #{record.deletedAt,jdbcType=TIMESTAMP},
+      `option` = #{record.option,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update <include refid="tableName" />
+    set id = #{record.id,jdbcType=BIGINT},
+      `type` = #{record.type,jdbcType=TINYINT},
+      statement = #{record.statement,jdbcType=VARCHAR},
+      image = #{record.image,jdbcType=VARCHAR},
+      answer = #{record.answer,jdbcType=VARCHAR},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      deleted_at = #{record.deletedAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

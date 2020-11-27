@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DelUserBindTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="DelUserBindTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.DelUserBindTest">
+                <methods>
+                    <include name="deluserbindTestByMore"></include>
+                    <include name="deluserbindTestByOne"></include>
+                    <include name="deluserbindTestByCircal"></include>
+                    <include name="deluserbindTestByEmptyKeys"></include>
+                    <include name="deluserbindTestByNotExistUser"></include>
+                    <include name="deluserbindTestByNotExistKeysValue"></include>
+                    <include name="deluserbindTestByNotExistParameterKeys"></include>
+                    <include name="deluserbindTestByNotExistParameterUname"></include>
+                    <include name="deluserbindTestByNotExistParameterAppid"></include>
+                    <include name="deluserbindTestByUnameValueIsUid"></include>
+                    <include name="deluserbindTestByUnameNotBindAny"></include>
+                    <include name="deluserbindTestByKeysValueNotRight"></include>
+                    <include name="deluserbindTestByMoreAndModifyAppidValueAndParameterKeysValueIsNotEmpty1"></include>
+                    <include name="deluserbindTestByMoreAndModifyAppidValueAndParameterKeysValueIsNotEmpty2"></include>
+                    <include name="deluserbindTestByMoreAndModifyAppidValueAndParameterKeysValueIsEmpty"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

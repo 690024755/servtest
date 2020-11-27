@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UpdPassTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="UpdPassTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.UpdPassTest">
+                <methods>
+                    <include name="updpassTestByExisUserPasswd"></include>
+                    <include name="updpassTestByWrongOldPasswd"></include>
+                    <include name="updpassTestByRightOldPasswd"></include>
+                    <include name="updpassTestByNotExisUserPasswd"></include>
+                    <include name="updpassTestByNotExistParameterUname"></include>
+                    <include name="updpassTestByNotExistParameterOldPassWd"></include>
+                    <include name="updpassTestByNotExistParameterNewPassWd"></include>
+                    <include name="updpassTestByNotExistParameterAppid"></include>
+                    <include name="updpassTestByNewPasswdEqualToOldPassWd"></include>
+                    <include name="updpassTestByNewPasswdIsLong"></include>
+                    <include name="updpassTestByNewPasswdIsShort"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

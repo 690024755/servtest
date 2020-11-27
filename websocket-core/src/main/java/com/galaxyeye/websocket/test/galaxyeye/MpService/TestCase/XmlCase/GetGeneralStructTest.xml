@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetGeneralStructTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetGeneralStructTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.GetGeneralStructTest">
+                <methods>
+                    <include name="getgeneralstructTestByParameterTypeValueIsObject"></include>
+                    <include name="getgeneralstructTestByParameterTypeValueIsTest"></include>
+                    <include name="getgeneralstructTestByExistMultiRecord1"></include>
+                    <include name="getgeneralstructTestByExistMultiRecord2"></include>
+                    <include name="getgeneralstructTestByParameterKeyValueIsExact"></include>
+                    <include name="getgeneralstructTestByParameterTypeValueIsInt"></include>
+                    <include name="getgeneralstructTestByParameterTypeValueIsFloat"></include>
+                    <include name="getgeneralstructTestByParameterTypeValueIsBool"></include>
+                    <include name="getgeneralstructTestByOpenMethodAndUid"></include>
+                    <include name="getgeneralstructTestByOpenMethodAndBmAppid"></include>
+                    <include name="getgeneralstructTestByAuthMethodAndUid"></include>
+                    <include name="getgeneralstructTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="getgeneralstructTestByAuthMethodAndBmAppid"></include>
+                    <include name="getgeneralstructTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="KfkserviceTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="KfkserviceTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.KfkserviceTest">
+                <methods>
+                    <include name="KfkserviceTestByUnameAndPasswdLogin"></include>
+                    <include name="KfkserviceTestByTokenLogin"></include>
+                    <include name="KfkserviceTestByKeytpValueIsCaccLogin"></include>
+                    <include name="KfkserviceTestByKeytpValueIsDeviceidLogin"></include>
+                    <include name="KfkserviceTestByKeytpValueIsOpenidLogin"></include>
+                    <include name="KfkserviceTestByKeytpValueIsUnionidLoginAndParameterStatisticsValueIsExist"></include>
+                    <include name="KfkserviceTestByKeytpValueIsUnionidLoginAndParameterStatisticsValueIsLong"></include>
+                    <include name="KfkserviceTestByKeytpValueIsUnionidLoginAndParameterStatisticsValueIsNotExist"></include>
+                    <include name="KfkserviceTestByKeytpValueIsUnionidLoginAndChangeAppid"></include>
+                    <include name="KfkserviceTestByAddNewUserAndParameterStatisticsNotEmpty"></include>
+                    <include name="KfkserviceTestByAddNewUserAndParameterStatisticsNotEmptyAndChannelNoIsLong"></include>
+                    <include name="KfkserviceTestByAddNewUserAndParameterStatisticsValueIsEmpty"></include>
+                    <include name="KfkserviceTestByAddNewUserAndParameterStatisticsNotExist"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+    <parent>
+        <artifactId>websocket</artifactId>
+        <groupId>com.galaxyeye</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections.galaxyeye</artifactId>
+            <version>0.9.11</version>
+            <scope>system</scope> <!--system，类似provided，需要显式提供依赖的jar以后，Maven就不会在Repository中查找它-->
+            <systemPath>${basedir}/lib/reflections.galaxyeye-0.9.11.jar</systemPath> <!--项目根目录下的lib文件夹下-->
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.aventstack</groupId>-->
+<!--            <artifactId>extentreports</artifactId>-->
+<!--            <version>4.0.9</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+
+
+    </dependencies>
+    <artifactId>websocket-core</artifactId>
+<build>
+    <resources>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+            <excludes>
+                <exclude>**/*.java</exclude>
+            </excludes>
+            <filtering>false</filtering>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+            <excludes>
+                <exclude>java</exclude>
+            </excludes>
+            <filtering>false</filtering>
+        </resource>
+    </resources>
+    <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+            <skip>false</skip>
+            <suiteXmlFiles>
+                <suiteXmlFile>${suitepath}/testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+        </configuration>
+        <version>3.0.0-M3</version>
+    </plugin>
+    </plugins>
+</build>
+</project>

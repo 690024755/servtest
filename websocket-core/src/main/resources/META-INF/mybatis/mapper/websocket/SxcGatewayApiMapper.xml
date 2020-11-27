@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcGatewayApiMapper" >
+    <resultMap id="SxcGatewayApiResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcGatewayApi" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="api_name" property="apiName" jdbcType="VARCHAR" />
+        <result column="api_tag" property="apiTag" jdbcType="BIGINT" />
+        <result column="api_call_permission" property="apiCallPermission" jdbcType="VARCHAR" />
+        <result column="api_define" property="apiDefine" jdbcType="VARCHAR" />
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="tableName">
+		sxc_gateway.sxc_gateway_api
+	</sql>
+
+    <sql id="columns">
+		id,api_name,api_tag,api_call_permission,api_define,gmt_create,gmt_modified
+	</sql>
+
+    <update id="updateByApiName">
+        update <include refid="tableName" />
+        set gmt_modified=now(),
+        api_define=#{apiDefine}
+        where api_name = #{apiName}
+    </update>
+
+  <update id="updateColumnsByApiName">
+    update <include refid="tableName" />
+    set gmt_modified=now(),
+        api_tag =#{apiTag},
+        api_call_permission =#{apiCallPermission},
+        api_define=#{apiDefine}
+    where api_name = #{apiName}
+  </update>
+
+  <delete id="deleteByApiName">
+
+      DELETE FROM <include refid="tableName" /> WHERE api_name = #{apiName}
+
+  </delete>
+
+
+  <select id="getApisByNames" parameterType="java.util.List" resultMap="SxcGatewayApiResultMap">
+
+    select
+   <include refid="columns" />
+    from <include refid="tableName" /> where `api_name` in
+    <foreach collection="list" item="item" open="(" close=")" separator="," >
+      #{item}
+    </foreach>
+
+  </select>
+
+    <select id="getApiByName" parameterType="java.lang.String" resultMap="SxcGatewayApiResultMap">
+        select
+      <include refid="columns" />
+        from <include refid="tableName" /> where `api_name`=#{apiName}
+    </select>
+
+    <insert id="insert" parameterType="java.util.Map" >
+        INSERT INTO <include refid="tableName" />
+        (api_name,api_tag,api_call_permission,api_define,gmt_create,gmt_modified)
+        VALUES
+        ( #{apiName},#{apiTag} ,#{apiCallPermission}, #{apiDefine},now(), now())
+    </insert>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO
+        <include refid="tableName"/>
+        (api_name,api_tag,api_call_permission,api_define,gmt_create,gmt_modified)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.apiName},0 ,'{}', '{}',now(), now()
+            )
+        </foreach>
+    </insert>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" separator=";">
+            update <include refid="tableName" /> set gmt_modified = #{item.gmtModified}
+            where api_name=#{item.apiName}
+        </foreach>
+    </update>
+
+
+</mapper>

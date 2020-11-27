@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AddeUserTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="AddeUserTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.AddeUserTest">
+                <methods>
+                    <include name="addeuserTestByParameterAcctypeValuesIsNotExist"></include>
+                    <include name="addeuserTestByParameterAcctypeValuesIsdmin"></include>
+                    <include name="addeuserTestByParameterAcctypeValuesIsEadmin"></include>
+                    <include name="addeuserTestByParameterAcctypeValuesIsEsub"></include>
+                    <include name="addeuserTestByParameterAcctypeValuesIsEchannel"></include>
+                    <include name="addeuserTestByParameterAcctypeValuesIsOmAdmin"></include>
+                    <include name="addeuserTestByParameterAcctypeValuesIsOmSubCommunity"></include>
+                    <include name="addeuserTestByParameterAcctypeValuesIsOmSubEnterprise"></include>
+                    <include name="addeuserTestByRepeatAddeUser"></include>
+                    <include name="addeuserTestByNotExistParameterEuname"></include>
+                    <include name="addeuserTestByNotExistParameterPasswd"></include>
+                    <include name="addeuserTestByParameterPasswdValueIsEmpty"></include>
+                    <include name="addeuserTestByParameterPasswdValueIsLong"></include>
+                    <include name="addeuserTestByParameterEunameValueIsLong"></include>
+                    <include name="addeuserTestByParameterEmailValueIsInvalidate"></include>
+                    <include name="addeuserTestByNotExistParameterEmail"></include>
+                    <include name="addeuserTestByNotExistParameterMobile"></include>
+                    <include name="addeuserTestByParameterMobileValueIsLong"></include>
+                    <include name="addeuserTestByParameterMobileValueIsInvalidate"></include>
+                    <include name="addeuserTestByNotExistParameterContactNumber"></include>
+                    <include name="addeuserTestByNotExistParameterEnterpriseName"></include>
+                    <include name="addeuserTestByNotExistParameterAddr"></include>
+                    <include name="addeuserTestByNotExistParameterAcctype"></include>
+                    <include name="addeuserTestByNotExistParameterFeuid"></include>
+                    <include name="addeuserTestByNotExistParameterAppid"></include>
+                    <include name="addeuserTestByParameterAcctypeIsNotEnable"></include>
+                    <include name="addeuserTestByParameterAcctypeIsEnable"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

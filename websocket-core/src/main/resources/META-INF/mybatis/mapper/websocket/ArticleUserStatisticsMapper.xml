@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.ArticleUserStatisticsMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.ArticleUserStatistics">
+    <result column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="push_num" jdbcType="INTEGER" property="pushNum" />
+    <result column="read_num" jdbcType="INTEGER" property="readNum" />
+    <result column="share_num" jdbcType="INTEGER" property="shareNum" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+
+  <sql id="tableName">
+		articledb.article_user_statistics
+	</sql>
+
+  <sql id="columns">
+		article_id,uid,push_num,read_num,share_num,appid,created_at,updated_at,
+        deleted_at
+	</sql>
+
+  <select id="getByArticleId" resultType="INTEGER" parameterType = "Long">
+   select count(1) from
+    <include refid="tableName" />
+    where article_id=#{articleId,jdbcType = BIGINT} and share_num>0
+  </select>
+
+  <select id="getByUId" resultMap="BaseResultMap" parameterType = "Long">
+    select <include refid="columns" /> from
+    <include refid="tableName" />
+    where uid=#{uid,jdbcType = BIGINT}
+  </select>
+
+  <select id="getByUIdAndArticleId" resultMap="BaseResultMap"  parameterType="HashMap">
+    select <include refid="columns" /> from
+    <include refid="tableName" />
+    where article_id=#{articleId,jdbcType = BIGINT} and uid=#{uid,jdbcType = BIGINT}
+  </select>
+
+  <select id="getByListUId" resultMap="BaseResultMap" parameterType = "java.util.List">
+    select <include refid="columns" /> from
+    <include refid="tableName" />
+    where article_id in
+    <foreach collection="list" item="item" open="(" close=")" separator="," >
+      #{item,jdbcType = BIGINT}
+    </foreach>
+  </select>
+
+  <delete id="deleteAllArticleUserStatistics" >
+    DELETE from <include refid="tableName" />
+  </delete>
+
+  <delete id="deleteByUId" parameterType="Long" >
+    DELETE from <include refid="tableName" /> where uid=#{uid,jdbcType = BIGINT}
+  </delete>
+
+  <delete id="deleteByArticleId" parameterType="Long" >
+    DELETE from <include refid="tableName" /> where article_id=#{articleId,jdbcType = BIGINT}
+  </delete>
+
+  <delete id="deleteByUIdAndArticleId" parameterType="HashMap" >
+    DELETE from <include refid="tableName" /> where article_id=#{articleId,jdbcType = BIGINT} and uid=#{uid,jdbcType = BIGINT}
+  </delete>
+
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    article_id, uid, push_num, read_num, share_num, appid, created_at, updated_at, deleted_at
+  </sql>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.ArticleUserStatisticsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.ArticleUserStatisticsExample">
+    delete from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.ArticleUserStatistics">
+    insert into article_user_statistics (article_id, uid, push_num, 
+      read_num, share_num, appid, 
+      created_at, updated_at, deleted_at
+      )
+    values (#{articleId,jdbcType=BIGINT}, #{uid,jdbcType=BIGINT}, #{pushNum,jdbcType=INTEGER}, 
+      #{readNum,jdbcType=INTEGER}, #{shareNum,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.ArticleUserStatistics">
+    insert into article_user_statistics
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="pushNum != null">
+        push_num,
+      </if>
+      <if test="readNum != null">
+        read_num,
+      </if>
+      <if test="shareNum != null">
+        share_num,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="deletedAt != null">
+        deleted_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="pushNum != null">
+        #{pushNum,jdbcType=INTEGER},
+      </if>
+      <if test="readNum != null">
+        #{readNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareNum != null">
+        #{shareNum,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null">
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.ArticleUserStatisticsExample" resultType="java.lang.Long">
+    select count(*) from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update article_user_statistics
+    <set>
+      <if test="record.articleId != null">
+        article_id = #{record.articleId,jdbcType=BIGINT},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.pushNum != null">
+        push_num = #{record.pushNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.readNum != null">
+        read_num = #{record.readNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.shareNum != null">
+        share_num = #{record.shareNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.appid != null">
+        appid = #{record.appid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdAt != null">
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedAt != null">
+        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deletedAt != null">
+        deleted_at = #{record.deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update article_user_statistics
+    set article_id = #{record.articleId,jdbcType=BIGINT},
+      uid = #{record.uid,jdbcType=BIGINT},
+      push_num = #{record.pushNum,jdbcType=INTEGER},
+      read_num = #{record.readNum,jdbcType=INTEGER},
+      share_num = #{record.shareNum,jdbcType=INTEGER},
+      appid = #{record.appid,jdbcType=VARCHAR},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      deleted_at = #{record.deletedAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetArticleAddInfoTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetArticleAddInfoTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.GetArticleAddInfoTest">
+                <methods>
+                    <include name="getArticLeaddInfoTestByUidAndToken"></include>
+                    <include name="getArticLeaddInfoTestByBmAppidAndAccessToken"></include>
+                    <include name="getArticLeaddInfoTestByNotExistParameterAppid"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="getArticLeaddInfoTestByOpenMethodAndUid"></include>
+                    <include name="getArticLeaddInfoTestByOpenMethodAndBmAppid"></include>
+                    <include name="getArticLeaddInfoTestByAuthMethodAndUid"></include>
+                    <include name="getArticLeaddInfoTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="getArticLeaddInfoTestByAuthMethodAndBmAppid"></include>
+                    <include name="getArticLeaddInfoTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

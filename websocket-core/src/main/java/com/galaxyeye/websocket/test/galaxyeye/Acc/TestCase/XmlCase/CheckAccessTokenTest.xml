@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CheckAccessTokenTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="CheckAccessTokenTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.CheckAccessTokenTest">
+                <methods>
+                    <include name="checkaccesstokenTestByValidAccessTokenIsNotExpire"></include>
+                    <include name="checkaccesstokenTestByValidAccessTokenIsExpire"></include>
+                    <include name="checkaccesstokenTestByInvalidAccessToken"></include>
+                    <include name="checkaccesstokenTest1"></include>
+                    <include name="test"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

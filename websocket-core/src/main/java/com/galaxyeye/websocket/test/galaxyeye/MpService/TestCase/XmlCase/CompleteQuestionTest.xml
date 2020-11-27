@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CompleteQuestionTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="CompleteQuestionTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.CompleteQuestionTest">
+                <methods>
+                    <include name="completequestionTestByAnswerThreeQuestion"></include>
+                    <include name="completequestionTestByAnswerTowQuestion"></include>
+                    <include name="completequestionTestByUIdAndToken"></include>
+                    <include name="completequestionTestByExpireToken"></include>
+                    <include name="completequestionTestByBmAppidAndAccessToken"></include>
+                    <include name="completequestionTestByNotExistAppid"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceWzhrssCardBalanceTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceWzhrssCardBalanceTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceWzhrssCardBalanceTest">
+                <methods>
+                    <include name="businessServiceWzhrssCardBalanceTestByParameterAcckindValueIsOne"></include>
+                    <include name="businessServiceWzhrssCardBalanceTestByParameterAcckindValueIsTwo"></include>
+                    <include name="businessServiceWzhrssCardBalanceTestByParameterAcckindValueIsSix"></include>
+                    <include name="businessServiceWzhrssCardBalanceTestByNotExistParameterCardno"></include>
+                    <include name="businessServiceWzhrssCardBalanceTestByParameterCardnoValueIsNotExist"></include>
+                    <include name="businessServiceWzhrssCardBalanceTestByNotExistParameterAcckind"></include>
+                    <include name="businessServiceWzhrssCardBalanceTestByParameterAcckindValueIsInvalidate"></include>
+
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

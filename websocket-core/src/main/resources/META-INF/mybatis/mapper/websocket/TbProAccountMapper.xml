@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.TbProAccountMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.TbProAccount">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="cid" jdbcType="VARCHAR" property="cid" />
+    <result column="cname" jdbcType="VARCHAR" property="cname" />
+    <result column="cpwd" jdbcType="VARCHAR" property="cpwd" />
+    <result column="euid" jdbcType="VARCHAR" property="euid" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="sendNum" jdbcType="BIGINT" property="sendnum" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="tableName">
+		icservicedb.tb_pro_account
+	</sql>
+  <sql id="Base_Column_List">
+    id, cid, cname, cpwd, euid, appid, status, uid, sendNum, type, create_time, update_time
+  </sql>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TbProAccountExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TbProAccountExample">
+    delete from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.TbProAccount">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into <include refid="tableName" /> (cid, cname, cpwd,
+      euid, appid, status, 
+      uid, sendNum, type, create_time, 
+      update_time)
+    values (#{cid,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, #{cpwd,jdbcType=VARCHAR}, 
+      #{euid,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{uid,jdbcType=BIGINT}, #{sendnum,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.TbProAccount">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into <include refid="tableName" />
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="cname != null">
+        cname,
+      </if>
+      <if test="cpwd != null">
+        cpwd,
+      </if>
+      <if test="euid != null">
+        euid,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="sendnum != null">
+        sendNum,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cpwd != null">
+        #{cpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="euid != null">
+        #{euid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="sendnum != null">
+        #{sendnum,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.TbProAccountExample" resultType="java.lang.Long">
+    select count(*) from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update <include refid="tableName" />
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cname != null">
+        cname = #{record.cname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cpwd != null">
+        cpwd = #{record.cpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.euid != null">
+        euid = #{record.euid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appid != null">
+        appid = #{record.appid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.sendnum != null">
+        sendNum = #{record.sendnum,jdbcType=BIGINT},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update <include refid="tableName" />
+    set id = #{record.id,jdbcType=BIGINT},
+      cid = #{record.cid,jdbcType=VARCHAR},
+      cname = #{record.cname,jdbcType=VARCHAR},
+      cpwd = #{record.cpwd,jdbcType=VARCHAR},
+      euid = #{record.euid,jdbcType=VARCHAR},
+      appid = #{record.appid,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=TINYINT},
+      uid = #{record.uid,jdbcType=BIGINT},
+      sendNum = #{record.sendnum,jdbcType=BIGINT},
+      type = #{record.type,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

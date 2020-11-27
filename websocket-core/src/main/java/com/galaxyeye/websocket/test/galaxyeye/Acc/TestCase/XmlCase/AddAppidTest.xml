@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AddAppidTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="AddAppidTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.AddAppidTest">
+                <methods>
+                    <include name="addAppidTestByNotExistRecord"></include>
+                    <include name="addAppidTestByNotExistParameterEuidValue"></include>
+                    <include name="addAppidTestByExistRecord"></include>
+                    <include name="addAppidTestByNotExistParameterEuid"></include>
+                    <include name="addAppidTestByNotExistParameterErid"></include>
+                    <include name="addAppidTestByNotExistParameterEuidAndNotExistParameterErid"></include>
+                    <include name="addAppidTestByNotExistParameterDesc"></include>
+                    <include name="addAppidTestByNotExistParameterCallbackUrl"></include>
+                    <include name="addAppidTestByNotExistParameterInfo"></include>
+                    <include name="addAppidTestByNotExistParameterIdentity"></include>
+                    <include name="addAppidTestByNotExistParameterAppid"></include>
+                    <include name="addAppidTestByEuidAndEridAndIdentity"></include>
+                    <include name="addAppidTestByExistParameterEuidAndNotExistParameterEridAndSuperValueIsOne"></include>
+                    <include name="addAppidTestByExistParameterEuidAndExistParameterEridAndSuperValueIsOne"></include>
+                    <include name="addAppidTestByNotExistParameterEuidAndNotExistParameterEridAndSuperValueIsOne"></include>
+                    <include name="addAppidTestByNotExistParameterEuidAndExistParameterEridAndSuperValueIsOne"></include>
+                    <include name="addAppidTestByExistParameterEuidAndExistParameterEridAndSuperValueIsOneAndAddParameterPrivilegeLevelAndAddParameterGuestPeriodValidAndAddParameterNormalUpperLimit"></include>
+                    <include name="addAppidTestByExistParameterEuidAndExistParameterEridAndSuperValueIsOneAndAddParameterPrivilegeLevelAndAddParameterGuestPeriodValidAndAddParameterNormalUpperLimitAndAddParameterProtVer"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

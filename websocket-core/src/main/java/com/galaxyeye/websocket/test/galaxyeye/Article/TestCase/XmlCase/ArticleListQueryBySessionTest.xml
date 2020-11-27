@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ArticleListQueryBySessionTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="ArticleListQueryBySessionTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.ArticleListQueryBySessionTest">
+                <methods>
+                    <include name="articleListQueryBySessionTest"></include>
+                    <include name="articleListQueryBySessionTestByDeleteLabAndDeleteSubTypeAndQueryByArticleID"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="articleListQueryByOpenMethodAndUid"></include>
+                    <include name="articleListQueryByOpenMethodAndBmAppid"></include>
+                    <include name="articleListQueryByAuthMethodAndUid"></include>
+                    <include name="articleListQueryByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="articleListQueryByAuthMethodAndBmAppid"></include>
+                    <include name="articleListQueryByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                    <include name="articleListQueryBySessionTestByIdDesc"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

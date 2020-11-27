@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcBuyerMapper" >
+  <resultMap id="SxcBuyerResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcBuyer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="buyer_user_id" property="buyerUserId" jdbcType="INTEGER" />
+    <result column="buyer_name" property="buyerName" jdbcType="VARCHAR" />
+    <result column="market_survey_status" property="marketSurveyStatus" jdbcType="INTEGER" />
+    <result column="max_buyer_level" property="maxBuyerLevel" jdbcType="INTEGER" />
+    <result column="buyer_level" property="buyerLevel" jdbcType="INTEGER" />
+    <result column="buyer_storehouse_id" property="buyerStorehouseId" jdbcType="INTEGER" />
+    <result column="buyer_status" property="buyerStatus" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="city_code" property="cityCode" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="supply_channel" jdbcType="VARCHAR" property="supplyChannel" />
+    <result column="day_transaction_fee" jdbcType="BIGINT" property="dayTransactionFee" />
+    <result column="downstream_customers" jdbcType="VARCHAR" property="downstreamCustomers" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="valid" jdbcType="INTEGER" property="valid" />
+  </resultMap>
+
+
+    <sql id="tableName">
+		sxc.sxc_buyer
+	</sql>
+
+  <sql id="columns" >
+    id, buyer_user_id, buyer_name, market_survey_status, max_buyer_level, buyer_level, 
+    buyer_storehouse_id, buyer_status, gmt_create, gmt_modified, city_code, state, supply_channel,
+    day_transaction_fee, downstream_customers, address, mobile_phone, valid
+  </sql>
+
+  <select id="getByBuyerUserId" resultMap="SxcBuyerResultMap" parameterType="java.lang.Integer" >
+    select
+      <include refid="columns" />
+    from <include refid="tableName" />
+    where buyer_user_id = #{BuyerUserId,jdbcType=INTEGER}
+  </select>
+
+
+
+</mapper>

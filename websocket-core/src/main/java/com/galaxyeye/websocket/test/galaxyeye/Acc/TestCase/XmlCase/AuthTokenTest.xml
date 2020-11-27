@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AuthTokenTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="AuthTokenTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.AuthTokenTest">
+                <methods>
+                    <include name="authTokenTestByNotExpireToken"></include>
+                    <include name="authTokenTestByExpireTokenViaNormalUser1"></include>
+                    <include name="authTokenTestByNotExpireAccessToken"></include>
+                    <include name="authTokenTestByExpireAccessToken"></include>
+                    <include name="authTokenTestByNotExistAccessToken"></include>
+                    <include name="authTokenTestByUidAndTokenAndBmAppidAndAccessTokenViaEnterpriseUser"></include>
+                    <include name="authTokenTestByUidAndTokenAndBmAppidAndAccessTokenViaNormalUser"></include>
+                    <include name="authTokenTestByExpireTokenViaNormalUser2"></include>
+                    <include name="authTokenTestByExpireTokenViaEnterpriseUser"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+</suite>

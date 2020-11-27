@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TrafficPoliceTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="TrafficPoliceTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.TrafficPoliceTest">
+                <methods>
+                    <include name="checkunionid"></include>
+                    <include name="createroom"></include>
+                    <include name="sendmessage"></include>
+                    <include name="readroom"></include>
+                    <include name="getlist"></include>
+                    <include name="replymessage"></include>
+                    <include name="finishroom"></include>
+                    <include name="finishroomByFinishRoom"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

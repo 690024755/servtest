@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CheckTokenTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="CheckTokenTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.CheckTokenTest">
+                <methods>
+                    <include name="Test"></include>
+                    <include name="checkTokenByEloginTest"></include>
+                    <include name="checkTokenByloginByDeviceidTest"></include>
+                    <include name="checkTokenByDeviceidByloginTest1"></include>
+                    <include name="checkTokenByloginByOpenidTest"></include>
+                    <include name="checkTokenByOpenidByloginTest1"></include>
+                    <include name="checkTokenByloginByUnionidTest"></include>
+                    <include name="checkTokenByUnionidByloginTest1"></include>
+                    <include name="checkTokenByloginByCaccTest"></include>
+                    <include name="checkTokenByCaccByloginTest1"></include>
+                    <include name="checkTokenByTokenByloginTest"></include>
+                    <include name="checkTokenByExpireTokenByloginTest"></include>
+                    <include name="Test1"></include>
+                    <include name="Test2"></include>
+                    <include name="Test3"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

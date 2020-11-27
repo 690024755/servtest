@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceQaExpertGetQaExpertMessageListTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceQaExpertGetQaExpertMessageListTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceQaExpertGetQaExpertMessageListTest">
+                <methods>
+                    <include name="GetQaExpertMessaGeListTestByBmAppidAndAccessToken"></include>
+                    <include name="GetQaExpertMessaGeListTestByUidAndToken"></include>
+                    <include name="GetQaExpertMessaGeListTestByBeginMoreThanEnd"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterRepliedValueIsZero"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterRepliedValueIsOne"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterRepliedValueIsTwo"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterCharacterValueIsZero"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterCharacterValueIsOneAndParameterRepliedValueIsZero"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterCharacterValueIsOneAndParameterRepliedValueIsOne"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterCharacterValueIsOneAndParameterRepliedValueIsTwo"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterCharacterValueIsTwoAndParameterRepliedValueIsZero"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterCharacterValueIsTwoAndParameterRepliedValueIsOne"></include>
+                    <include name="GetQaExpertMessaGeListTestByParameterCharacterValueIsTwoAndParameterRepliedValueIsTwo"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

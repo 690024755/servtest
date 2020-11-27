@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.HealthUserMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.HealthUser">
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="answer" jdbcType="INTEGER" property="answer" />
+    <result column="right" jdbcType="INTEGER" property="right" />
+    <result column="sign_days" jdbcType="INTEGER" property="signDays" />
+    <result column="today_answer" jdbcType="SMALLINT" property="todayAnswer" />
+    <result column="today_right" jdbcType="SMALLINT" property="todayRight" />
+    <result column="answer_at" jdbcType="TIMESTAMP" property="answerAt" />
+    <result column="sign_at" jdbcType="TIMESTAMP" property="signAt" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+  </resultMap>
+  <sql id="tableName">
+		businessdb.health_user
+  </sql>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uid, answer, right, sign_days, today_answer, today_right, answer_at, sign_at, appid, 
+    created_at
+  </sql>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.HealthUserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.HealthUserExample">
+    delete from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+
+  <delete id="deleteAll" >
+    delete from <include refid="tableName" />
+  </delete>
+
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.HealthUser">
+    insert into <include refid="tableName" /> (uid, answer, right,
+      sign_days, today_answer, today_right, 
+      answer_at, sign_at, appid, 
+      created_at)
+    values (#{uid,jdbcType=BIGINT}, #{answer,jdbcType=INTEGER}, #{right,jdbcType=INTEGER}, 
+      #{signDays,jdbcType=INTEGER}, #{todayAnswer,jdbcType=SMALLINT}, #{todayRight,jdbcType=SMALLINT}, 
+      #{answerAt,jdbcType=TIMESTAMP}, #{signAt,jdbcType=TIMESTAMP}, #{appid,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.HealthUser">
+    insert into <include refid="tableName" />
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="right != null">
+        right,
+      </if>
+      <if test="signDays != null">
+        sign_days,
+      </if>
+      <if test="todayAnswer != null">
+        today_answer,
+      </if>
+      <if test="todayRight != null">
+        today_right,
+      </if>
+      <if test="answerAt != null">
+        answer_at,
+      </if>
+      <if test="signAt != null">
+        sign_at,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=INTEGER},
+      </if>
+      <if test="right != null">
+        #{right,jdbcType=INTEGER},
+      </if>
+      <if test="signDays != null">
+        #{signDays,jdbcType=INTEGER},
+      </if>
+      <if test="todayAnswer != null">
+        #{todayAnswer,jdbcType=SMALLINT},
+      </if>
+      <if test="todayRight != null">
+        #{todayRight,jdbcType=SMALLINT},
+      </if>
+      <if test="answerAt != null">
+        #{answerAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signAt != null">
+        #{signAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.HealthUserExample" resultType="java.lang.Long">
+    select count(*) from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update <include refid="tableName" />
+    <set>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.answer != null">
+        answer = #{record.answer,jdbcType=INTEGER},
+      </if>
+      <if test="record.right != null">
+        right = #{record.right,jdbcType=INTEGER},
+      </if>
+      <if test="record.signDays != null">
+        sign_days = #{record.signDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.todayAnswer != null">
+        today_answer = #{record.todayAnswer,jdbcType=SMALLINT},
+      </if>
+      <if test="record.todayRight != null">
+        today_right = #{record.todayRight,jdbcType=SMALLINT},
+      </if>
+      <if test="record.answerAt != null">
+        answer_at = #{record.answerAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signAt != null">
+        sign_at = #{record.signAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appid != null">
+        appid = #{record.appid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdAt != null">
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update <include refid="tableName" />
+    set uid = #{record.uid,jdbcType=BIGINT},
+      answer = #{record.answer,jdbcType=INTEGER},
+      right = #{record.right,jdbcType=INTEGER},
+      sign_days = #{record.signDays,jdbcType=INTEGER},
+      today_answer = #{record.todayAnswer,jdbcType=SMALLINT},
+      today_right = #{record.todayRight,jdbcType=SMALLINT},
+      answer_at = #{record.answerAt,jdbcType=TIMESTAMP},
+      sign_at = #{record.signAt,jdbcType=TIMESTAMP},
+      appid = #{record.appid,jdbcType=VARCHAR},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

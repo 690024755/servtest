@@ -1,0 +1,32 @@
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/js/page.js"></script>
+
+<!-- jquery -->
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/jquery/jquery.1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js">
+
+<!-- bootstrap -->
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/css/bootstrap-theme.min.css" type="text/css" />
+
+<!-- bootstrap-datetimepicker -->
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/datetimepicker/css/bootstrap-datetimepicker.css" type="text/css" />
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/datetimepicker/css/bootstrap-datetimepicker.min.css" type="text/css" />
+
+<!-- bootstrap-validator -->
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/validator/js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/validator/js/bootstrapValidator.min.js"></script>
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/validator/css/bootstrapValidator.css" type="text/css" />
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/bootstrap/validator/css/bootstrapValidator.min.css" type="text/css" />
+
+<!-- jquery-ztree -->
+<script type="text/javascript" src="${propTool.getStyleUrl('zzjr.style.url')}/common/jquery/ztree/js/jquery.ztree.all-3.5.js"></script>
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/jquery/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css" />
+
+<!-- crm -->
+<link rel="stylesheet" href="${propTool.getStyleUrl('zzjr.style.url')}/common/css/hometop.css" />	
+
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BaiDuPictureTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BaiDuPictureTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BaiDuPictureTest">
+                <methods>
+                    <include name="uploadimageTest"></include>
+                    <include name="uploadimageTestByOpenMethodAndUid"></include>
+                    <include name="uploadimageTestByOpenMethodAndBmAppid"></include>
+                    <include name="uploadimageTestByAuthMethodAndUid"></include>
+                    <include name="uploadimageTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="uploadimageTestByAuthMethodAndBmAppid"></include>
+                    <include name="uploadimageTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

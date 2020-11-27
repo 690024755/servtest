@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SetImagesTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="SetImagesTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.SetImagesTest">
+                <methods>
+                    <include name="setImagesTestByJpgAndParameterSourceValueIsMessageboard"></include>
+                    <include name="setImagesTestByJpgAndParameterSourceValueIsArticle"></include>
+                    <include name="setImagesTestByBmAppidAndAccessToken"></include>
+                    <include name="setImagesTestByUidAndToken"></include>
+                    <include name="setImagesTestByExpireToken"></include>
+                    <include name="setImagesTestByNotExistParameterAppid"></include>
+                    <include name="setImagesTestByNotExistParameterEnable"></include>
+                    <include name="setImagesTestByNotExistParameterUrls"></include>
+                    <include name="setImagesTestByParameterUrlsValueIsEmpty"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="setImagesTestByOpenMethodAndUid"></include>
+                    <include name="setImagesTestByOpenMethodAndBmAppid"></include>
+                    <include name="setImagesTestByAuthMethodAndUid"></include>
+                    <include name="setImagesTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="setImagesTestByAuthMethodAndBmAppid"></include>
+                    <include name="setImagesTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

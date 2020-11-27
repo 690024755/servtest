@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceWzhrssFaceVerifyTokenTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceWzhrssFaceVerifyTokenTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceWzhrssFaceVerifyTokenTest">
+                <methods>
+                    <include name="businessServiceWzhrssFaceVerifyTokenTestByParameterIdCardAndNameIsMatch"></include>
+                    <include name="businessServiceWzhrssFaceVerifyTokenTestByParameterIdCardAndNameIsNotMatch"></include>
+                    <include name="businessServiceWzhrssFaceVerifyTokenTestByParameterIdCardValueWithX"></include>
+                    <include name="businessServiceWzhrssFaceVerifyTokenTestByNotExistParameterName"></include>
+                    <include name="businessServiceWzhrssFaceVerifyTokenTestByNotExistParameterIdCard"></include>
+                    <include name="businessServiceWzhrssFaceVerifyTokenTestByNotExistParameterUidAndNotExistParameterToken"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

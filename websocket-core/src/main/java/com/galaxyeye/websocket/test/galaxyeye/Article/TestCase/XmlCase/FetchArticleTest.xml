@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FetchArticleTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="FetchArticleTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.FetchArticleTest">
+                <methods>
+                    <include name="fetchArticleTest"></include>
+                    <include name="fetchArticleTestByUidAndToken"></include>
+                    <include name="fetchArticleTestByBmAppidAndAccessToken"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="fetchArticleTestByOpenMethodAndUid"></include>
+                    <include name="fetchArticleTestByOpenMethodAndBmAppid"></include>
+                    <include name="fetchArticleTestByAuthMethodAndUid"></include>
+                    <include name="fetchArticleTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="fetchArticleTestByAuthMethodAndBmAppid"></include>
+                    <include name="fetchArticleTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+
+                    <!--                    增加文章大类的维护功能业务-->
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

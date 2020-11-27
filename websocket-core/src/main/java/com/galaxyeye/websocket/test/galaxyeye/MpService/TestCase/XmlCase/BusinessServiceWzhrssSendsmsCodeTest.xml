@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceWzhrssSendsmsCodeTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceWzhrssSendsmsCodeTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceWzhrssSendsmsCodeTest">
+                <methods>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByParameterSmstypeValueIsOneAndNotExistParameterPhone"></include>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByParameterSmstypeValueIsOneAndParameterPhoneIsRight"></include>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByParameterSmstypeValueIsOneAndParameterPhoneIsWrong"></include>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByParameterSmstypeValueIsOne"></include>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByParameterSmstypeValueIsTwo"></include>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByParameterSmstypeValueIsThree"></include>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByParameterSmstypeValueIsOther"></include>
+                    <include name="businessServiceWzhrssSendsmsCodeTestByNotExistParameterCardno"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

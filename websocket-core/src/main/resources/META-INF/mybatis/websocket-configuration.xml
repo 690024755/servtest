@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcUser" alias="SxcUser"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcAccount" alias="SxcAccount"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcStorehouse" alias="SxcStorehouse"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcItemSku" alias="SxcItemSku"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcBuyer" alias="SxcBuyer"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcGatewayApi" alias="SxcGatewayApi"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcFixPriceBaseInfo" alias="SxcFixPriceBaseInfo"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcOrder" alias="SxcOrder"/>
+		<typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcFixPriceRule" alias="SxcFixPriceRule"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcFreightRuleMap" alias="SxcFreightRuleMap"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcFreightRuleMap" alias="SxcFreightRuleMap"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcGoodsGroupRelation" alias="SxcGoodsGroupRelation"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcServiceRule" alias="SxcServiceRule"/>
+		<!-- galaxyeye 下的配置文件 -->
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.ArticleStatistics" alias="ArticleStatistics"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.Article" alias="Article"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.ArticleUserStatistics" alias="ArticleUserStatistics"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.UserCollectStatistics" alias="UserCollectStatistics"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.UserFavorStatistics" alias="UserFavorStatistics"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.UserLabStatistics" alias="UserLabStatistics"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.AssLab" alias="AssLab"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.AssSubType" alias="AssSubType"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.MainType" alias="MainType"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.ArticleCatAssLab" alias="ArticleCatAssLab"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.ArticleCatAssSubType" alias="ArticleCatAssSubType"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TKeyindex" alias="TKeyindex"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.ManualConfig" alias="ManualConfig"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TUser" alias="TUser"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TUserkeys" alias="TUserkeys"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.HealthQuestionHistory" alias="HealthQuestionHistory"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.HealthUser" alias="HealthUser"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.Appid" alias="Appid"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TbProAccount" alias="TbProAccount"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceRoom" alias="TrafficpoliceRoom"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.Euser" alias="Euser"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SysAccFlow" alias="SysAccFlow"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SysLog" alias="SysLog"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TAllUsers" alias="TAllUsers"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceQuestionUser" alias="TrafficpoliceQuestionUser"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TrafficpoliceQuestion" alias="TrafficpoliceQuestion"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.CustomerServiceStaff" alias="CustomerServiceStaff"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.TGuestUser" alias="TGuestUser"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.Config" alias="Config"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.SysRole" alias="SysRole"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.CaseLog" alias="CaseLog"/>
+        <typeAlias type="com.galaxyeye.websocket.infrastructure.repository.entity.HttpLog" alias="HttpLog"/>
+
+	</typeAliases>
+</configuration>

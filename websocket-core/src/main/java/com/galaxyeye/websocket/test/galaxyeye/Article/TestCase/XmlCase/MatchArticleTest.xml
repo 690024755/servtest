@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MatchArticleTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="MatchArticleTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.MatchArticleTest">
+                <methods>
+                    <include name="matchArticleTestByParameterCondValueIsEmpty"></include>
+                    <include name="matchArticleTestByUidAndToken"></include>
+                    <include name="matchArticleTestByCondOnlyIdsIsEmpty"></include>
+                    <include name="matchArticleTestByCondOnlyIdsIsRepeat"></include>
+                    <include name="matchArticleTestByCondOnlyIdsByArticleIsPutOn"></include>
+                    <include name="matchArticleTestByCondOnlyIdsByArticleIsPutOff"></include>
+                    <include name="matchArticleTestByCondOnlyIdsByMoreThanMaxCount"></include>
+                    <include name="matchArticleTestByCondOnlyIdsByLessThanMaxCountMoreThanMinCount"></include>
+                    <include name="matchArticleTestByCondOnlyIdsByLessThanMinCount"></include>
+                    <include name="matchArticleTestByCondIsIdsAndTitleByMoreThanMinCountAndLessThanMaxCount"></include>
+                    <include name="matchArticleTestByCondIsIdsAndTitleByMoreThanMaxCount"></include>
+                    <include name="matchArticleTestByCondIsIdsAndTitleByLessThanMinCount"></include>
+                    <include name="matchArticleTestByCondOnlyTitleByMoreThanMaxCount"></include>
+                    <include name="matchArticleTestByCondOnlyTitleByLessThanMaxCountMoreThanMinCount"></include>
+                    <include name="matchArticleTestByCondOnlyTitleByLessThanMinCount"></include>
+                    <include name="matchArticleTestByCondOnlyTitleIsRepeat"></include>
+                    <include name="matchArticleTestByCondOnlyTitleIsEmpty"></include>
+                    <include name="matchArticleTestByCondOnlyMainTypeAndParameterMainTypeValueIsOne"></include>
+                    <include name="matchArticleTestByCondOnlyMainTypeAndParameterMainTypeValueIsFour"></include>
+                    <include name="matchArticleTestByCondOnlySubType"></include>
+                    <include name="matchArticleTestByCondParameterMainTypeValueIsEmptyAndParameterSubTypeValueIsEmpty"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndLessThanMinCount"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndMoreThanMinCountAndLessThanMaxCount"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndMoreThanMaxCount"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndLessThanMinCountAndLessThanMaxCountAndParameterMinCountValueIsZero"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndLessThanMinCountAndMoreThanMaxCountAndParameterMinCountValueIsZero"></include>
+                    <include name="matchArticleTestByCondOnlyAddmainTypeAndParameterAddmainTypeValueIsOne"></include>
+                    <include name="matchArticleTestByCondOnlyAddmainTypeAndParameterAddmainTypeValueIsFour"></include>
+                    <include name="matchArticleTestByCondOnlyAddSubType"></include>
+                    <include name="matchArticleTestByCondParameterAddMainTypeValueIsEmptyAndParameterAddSubTypeValueIsEmpty"></include>
+                    <include name="matchArticleTestByCondAddMainTypeAndAddSubTypeAndMinCountIsNotZeroAndMoreThanMinCountAndLessThanMaxCount"></include>
+                    <include name="matchArticleTestByCondAddMainTypeAndAddSubTypeAndMinCountIsNotZeroAndLessThanMinCount"></include>
+                    <include name="matchArticleTestByCondAddMainTypeAndAddSubTypeAndMinCountIsNotZeroAndMoreThanMaxCount"></include>
+                    <include name="matchArticleTestByCondAddMainTypeAndAddSubTypeAndLessThanMinCountAndParameterMinCountValueIsZero"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndAddmainTypeAndAddSubType"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndParameterSortByUpdValueIsTrue"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndParameterSortByUpdValueIsFalse"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndParameterSortByUpdIsNotExist"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndParameterSortByUpdValueIsTest"></include>
+                    <include name="matchArticleTestByCondIdsAndTitleAndMainTypeAndSubTypeAndAddmainTypeAndAddSubType"></include>
+                    <include name="matchArticleTestByCondIdsAndTitleAndMainTypeAndSubTypeAndAddmainTypeAndAddSubTypeAndOrlab"></include>
+                    <include name="matchArticleTestByCondIdsAndTitleAndMainTypeAndSubTypeAndAddmainTypeAndAddSubTypeAndIncludeOrSubType"></include>
+                    <include name="matchArticleTestByCondIdsAndTitleAndMainTypeAndSubTypeAndAddmainTypeAndAddSubTypeAndIncludeOrLab"></include>
+                    <include name="matchArticleTestByCondIdsAndTitleAndMainTypeAndSubTypeAndAddmainTypeAndAddSubTypeAndExcludeOrSubType"></include>
+                    <include name="matchArticleTestByCondIdsAndTitleAndMainTypeAndSubTypeAndAddmainTypeAndAddSubTypeAndExcludeOrLab"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="matchArticleTestByOpenMethodAndUid"></include>
+                    <include name="matchArticleTestByOpenMethodAndBmAppid"></include>
+                    <include name="matchArticleTestByAuthMethodAndUid"></include>
+                    <include name="matchArticleTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="matchArticleTestByAuthMethodAndBmAppid"></include>
+                    <include name="matchArticleTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+
+                    <!--                    增加文章大类的维护功能业务-->
+                    <include name="matchArticleTestByCondOnlyIdsAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondOnlyTitleAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondOnlyMainTypeAndParameterMainTypeValueIsOneAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondContainMainTypeAndIdsAndParameterMainTypeValueIsOneAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondContainMainTypeAndTitleAndParameterMainTypeValueIsOneAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondOnlyMainTypeAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondOnlyMainTypeAndSubTypeAndIsMaintainedAndMainTypeNotMatchSubType"></include>
+                    <include name="matchArticleTestByCondOnlyMainTypeAndParameterMainTypeValueIsMoreAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondOnlyAddmainTypeAndParameterAddmainTypeValueIsOneAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondOnlyAddmainTypeAndParameterAddmainTypeValueIsFourAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondMainTypeAndSubTypeAndAddmainTypeAndAddSubTypeAndOrlabAndIsMaintained"></include>
+                    <include name="matchArticleTestByCondIdsAndTitleAndMainTypeAndSubTypeAndAddmainTypeAndAddSubTypeAndOrlabAndIsMaintained"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

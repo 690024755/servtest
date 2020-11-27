@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcStorehouseMapper">
+  <resultMap id="SxcStorehouseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcStorehouse">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="manager" jdbcType="VARCHAR" property="manager" />
+    <result column="house_type" jdbcType="INTEGER" property="houseType" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="complaint_phone" jdbcType="VARCHAR" property="complaintPhone" />
+    <result column="city_code" jdbcType="INTEGER" property="cityCode" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="market_type" jdbcType="INTEGER" property="marketType" />
+    <result column="market_attribute" jdbcType="INTEGER" property="marketAttribute" />
+    <result column="survey_market_id" jdbcType="INTEGER" property="surveyMarketId" />
+    <result column="sale_time" jdbcType="VARCHAR" property="saleTime" />
+    <result column="cutoff_time" jdbcType="VARCHAR" property="cutoffTime" />
+    <result column="peak_hour" jdbcType="VARCHAR" property="peakHour" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="arrive_need_start_time" jdbcType="VARCHAR" property="arriveNeedStartTime" />
+    <result column="arrive_need_end_time" jdbcType="VARCHAR" property="arriveNeedEndTime" />
+    <result column="is_trust_handover" jdbcType="INTEGER" property="isTrustHandover" />
+    <result column="auto_check_returned_flag" jdbcType="INTEGER" property="autoCheckReturnedFlag" />
+    <result column="auto_return_package" jdbcType="INTEGER" property="autoReturnPackage" />
+    <result column="organization_zone_id" jdbcType="INTEGER" property="organizationZoneId" />
+    <result column="require_start_time" jdbcType="VARCHAR" property="requireStartTime" />
+    <result column="require_end_time" jdbcType="VARCHAR" property="requireEndTime" />
+    <result column="location_province_code" jdbcType="INTEGER" property="locationProvinceCode" />
+    <result column="location_area_code" jdbcType="INTEGER" property="locationAreaCode" />
+    <result column="location_city_code" jdbcType="INTEGER" property="locationCityCode" />
+    <result column="coordinate" jdbcType="VARCHAR" property="coordinate" />
+  </resultMap>
+    <sql id="tableName">
+		sxc.sxc_storehouse
+	</sql>
+    <sql id="columns">
+		id,name,address,phone,create_time,state,manager,house_type,area_code,complaint_phone,
+		city_code,city_name,update_time,password,market_type,market_attribute,survey_market_id,
+		sale_time,cutoff_time,peak_hour,status,arrive_need_start_time,require_end_time,location_province_code,
+		location_city_code,coordinate
+	</sql>
+    <select id="getById" resultMap="SxcStorehouseResultMap" parameterType = "INTEGER">
+        select <include refid="columns" /> from
+        <include refid="tableName" />
+        where id=#{id,jdbcType = INTEGER} and state=1
+    </select>
+    <update id="modifyCutffTime" parameterType = "HashMap">
+     UPDATE <include refid="tableName" /> set cutoff_time=#{cutOffTime}  where id=#{id}
+     and state=1
+   </update>
+</mapper>

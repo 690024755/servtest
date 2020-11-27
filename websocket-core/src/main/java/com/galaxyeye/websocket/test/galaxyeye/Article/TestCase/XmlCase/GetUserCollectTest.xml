@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetUserCollectTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetUserCollectTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.GetUserCollectTest">
+                <methods>
+                    <include name="getUserCollectTestByBmAppidAndAccessToken"></include>
+                    <include name="getUserCollectTestByUidAndToken"></include>
+<!--                    增加对权限验证-->
+                    <include name="getUserCollectTestByOpenMethodAndUid"></include>
+                    <include name="getUserCollectTestByOpenMethodAndBmAppid"></include>
+                    <include name="getUserCollectTestByAuthMethodAndUid"></include>
+                    <include name="getUserCollectTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="getUserCollectTestByAuthMethodAndBmAppid"></include>
+                    <include name="getUserCollectTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

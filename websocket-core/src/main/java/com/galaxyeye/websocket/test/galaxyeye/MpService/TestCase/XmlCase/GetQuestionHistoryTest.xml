@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetQuestionHistoryTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetQuestionHistoryTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.GetQuestionHistoryTest">
+                <methods>
+                    <include name="getQuestionHistoryTestByExpireToken"></include>
+                    <include name="getQuestionHistoryTestByUidAndToken"></include>
+                    <include name="getQuestionHistoryTestByParameterUidIsNotExist"></include>
+                    <include name="getQuestionHistoryTestByNotExistParameterAppid"></include>
+                    <include name="getQuestionHistoryTestByParameterUidValueIsError"></include>
+                    <include name="getQuestionHistoryTestByBmAppidAndAccessTokenAndUid"></include>
+                    <include name="getQuestionHistoryTestByBmAppidAndAccessTokenAndParameterUidNotExist"></include>
+                    <include name="getQuestionHistoryTestByParameterBmAppidNotExist"></include>
+                    <include name="getQuestionHistoryTestByParameterDateNotExist"></include>
+                    <include name="getQuestionHistoryTestByParameterDateformat"></include>
+                    <include name="getQuestionHistoryTestByTableIsEmpty"></include>
+
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

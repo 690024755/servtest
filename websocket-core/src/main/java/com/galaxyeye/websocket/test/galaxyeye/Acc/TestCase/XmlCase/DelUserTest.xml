@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DelUserTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="DelUserTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.DelUserTest">
+                <methods>
+                    <include name="deluserTestByExistUser"></include>
+                    <include name="deluserTestByNotExistUser"></include>
+                    <include name="deluserTestByNotExistParameterUid"></include>
+                    <include name="deluserTestByNotExistAppid"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

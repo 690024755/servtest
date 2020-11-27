@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FeedbackRespTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="FeedbackRespTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.WxService.TestCase.FeedbackRespTest">
+                <methods>
+                    <include name="feedbackRespTestByParameterEvaluateValueIsOne"></include>
+                    <include name="feedbackRespTestByParameterEvaluateValueIsTwo"></include>
+                    <include name="feedbackRespTestByParameterEvaluateValueIsThree"></include>
+                    <include name="feedbackRespTestByParameterEvaluateValueIsOther"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

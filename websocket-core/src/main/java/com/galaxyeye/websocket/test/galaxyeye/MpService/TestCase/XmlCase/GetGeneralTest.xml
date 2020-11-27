@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GetGeneralTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="GetGeneralTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.GetGeneralTest">
+                <methods>
+                    <include name="getgeneralTestByParameterTypeValueIsObject"></include>
+                    <include name="getgeneralTestByParameterTypeValueIsTest"></include>
+                    <include name="getgeneralTestByExistMultiRecord1"></include>
+                    <include name="getgeneralTestByExistMultiRecord2"></include>
+                    <include name="getgeneralTestByParameterKeyValueIsExact"></include>
+                    <include name="getgeneralTestByParameterTypeValueIsInt"></include>
+                    <include name="getgeneralTestByParameterTypeValueIsFloat"></include>
+                    <include name="getgeneralTestByParameterTypeValueIsBool"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

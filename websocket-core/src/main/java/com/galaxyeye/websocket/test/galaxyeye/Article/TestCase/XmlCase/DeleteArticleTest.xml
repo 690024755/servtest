@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DeleteArticleTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="DeleteArticleTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.DeleteArticleTest">
+                <methods>
+                    <include name="deleteArticleTestByNotExistArticle1"></include>
+                    <include name="deleteArticleTestByNotExistArticle2"></include>
+                    <include name="deleteArticleTestByNotExistArticle3"></include>
+                    <include name="deleteArticleTestByExistArticle1"></include>
+                    <include name="deleteArticleTestByExistArticle2"></include>
+                    <include name="deleteArticleTestByExistArticle3"></include>
+                    <include name="deleteArticleTestByExistArticle4"></include>
+                    <include name="deleteArticleTestByExistArticle5"></include>
+                    <!--                    增加对权限验证-->
+                    <include name="deleteArticleTestByOpenMethodAndUid"></include>
+                    <include name="deleteArticleTestByOpenMethodAndBmAppid"></include>
+                    <include name="deleteArticleTestByAuthMethodAndUid"></include>
+                    <include name="deleteArticleTestByAuthMethodAndUidAndNotExistParameterToken"></include>
+                    <include name="deleteArticleTestByAuthMethodAndBmAppid"></include>
+                    <include name="deleteArticleTestByAuthMethodAndBmAppidAndNotExistParameterAccessToken"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

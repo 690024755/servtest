@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LabListTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="LabListTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.LabListTest">
+                <methods>
+<!--                    标签类-->
+                    <include name="labListTestByNormal"></include>
+                    <include name="labListTestByParameterCountValueIsZero"></include>
+                    <include name="labListTestByParameterCountValueIsNegative"></include>
+                    <include name="labListTestByParameterCountValueIsTen"></include>
+                    <include name="labListTestByParameterPageValueIsZero"></include>
+                    <include name="labListTestByParameterPageValueIsNegative"></include>
+                    <include name="labListTestByParameterPageValueIsTen"></include>
+                    <include name="labListTestByNotExistParameterCount"></include>
+                    <include name="labListTestByNotExistParameterPage"></include>
+                    <include name="labListTestByNotExistParameterCode"></include>
+                    <include name="labListTestByNotExistParameterName"></include>
+                    <include name="labListTestByNotExistParameterMaintype"></include>
+                    <include name="labListTestByParameterNameIsFuzzyMatching"></include>
+                    <include name="labListTestByParameterCOdeIsNotFuzzyMatching"></include>
+                    <include name="labListTestByNotExistParameterMaintypeAndNotExistParameterNameAndNotExistParameterCode"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

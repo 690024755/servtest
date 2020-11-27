@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UserBindTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="UserBindTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.UserBindTest">
+                <methods>
+                    <include name="userbindTestByOne1"></include>
+                    <include name="userbindTestByOne2"></include>
+                    <include name="userbindTestByTwo"></include>
+                    <include name="userbindTestByRepeatBindOpenid"></include>
+                    <include name="userbindTestByRepeatBindUnionid"></include>
+                    <include name="userbindTestByNotExistUname"></include>
+                    <include name="userbindTestByExistUnameAndNeverBind"></include>
+                    <include name="userbindTestByNotExistParameterAppid"></include>
+                    <include name="userbindTestByNotExistParameterUname"></include>
+                    <include name="userbindTestByNotExistParameterKeys"></include>
+                    <include name="userbindTestByEmptyKeys"></include>
+                    <include name="userbindTestByBindMultiParameterAndModifyAppidValue1"></include>
+                    <include name="userbindTestByBindMultiParameterAndModifyAppidValue2"></include>
+                    <include name="userbindTestByBindMultiParameterAndModifyAppidValue3"></include>
+                    <include name="userbindTestByEmptyKeysAndModifyAppid"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

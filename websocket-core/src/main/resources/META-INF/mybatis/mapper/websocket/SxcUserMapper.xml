@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcUserMapper">
+  <resultMap id="SxcUserResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="push_id" jdbcType="INTEGER" property="pushId" />
+    <result column="pickhose_id" jdbcType="INTEGER" property="pickhoseId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="city_code" jdbcType="INTEGER" property="cityCode" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="images" jdbcType="VARCHAR" property="images" />
+    <result column="is_valid" jdbcType="INTEGER" property="isValid" />
+    <result column="feature" jdbcType="VARCHAR" property="feature" />
+    <result column="pickhose_ids" jdbcType="VARCHAR" property="pickhoseIds" />
+    <result column="survey_user_id" jdbcType="INTEGER" property="surveyUserId" />
+    <result column="user_level" jdbcType="INTEGER" property="userLevel" />
+    <result column="user_mature" jdbcType="INTEGER" property="userMature" />
+  </resultMap>
+    <sql id="tableName">
+		sxc.sxc_user
+	</sql>
+    <sql id="columns">
+		id,user_id,user_name,mobile_phone,password,sex,address,user_type,
+        state,area_code,push_id,pickhose_id,create_time,city_code,login_name,update_time,
+        id_card,images,is_valid,feature,pickhose_ids,survey_user_id,user_level,user_mature
+	</sql>
+  <sql id="Base_Where_Clause">
+    <where>
+      <trim prefixOverrides="and">
+        <if test="userName!= null"> and user_name = #{userName,jdbcType = VARCHAR} </if>
+        <if test="password!= null"> and password = #{password,jdbcType = VARCHAR} </if>
+        <if test="mobilePhone!= null"> and mobile_phone = #{mobilePhone,jdbcType = VARCHAR} </if>
+        <if test="idCard!= null"> and id_card = #{idCard,jdbcType = VARCHAR} </if>
+        <if test="isValid!= null"> and is_valid = #{isValid,jdbcType = INTEGER} </if>
+        <if test="state!= null"> and state = #{state,jdbcType = INTEGER} </if>
+        <if test="userType!= null"> and user_type = #{userType,jdbcType = INTEGER} </if>
+        <if test="cityCode!= null"> and city_code = #{cityCode,jdbcType = INTEGER} </if>
+        <if test="userNameLike!= null"> and user_name like concat('%',#{userNameLike},'%')  </if>
+        <if test="mobilePhoneLike!= null"> and mobile_phone like concat('%',#{mobilePhoneLike},'%')  </if>
+        <if test="userId!= null"> and id = #{userId,jdbcType = INTEGER}  </if>
+        <if test="createTimeStart!= null and createTimeEnd!= null"> and create_time &lt;= #{createTimeEnd,jdbcType = TIMESTAMP} and create_time  &gt;= #{createTimeStart,jdbcType = TIMESTAMP} </if>
+        <if test="userIdList != null and userIdList.size()>0">
+          and user_id in
+          <foreach collection="userIdList" item="userId" open="(" separator="," close=")">
+            #{userId,jdbcType=INTEGER}
+          </foreach>
+        </if>
+      </trim>
+    </where>
+  </sql>
+    <select id="getByMobilePhone" resultMap="SxcUserResultMap" parameterType="HashMap">
+        select <include refid="columns" /> from
+         <include refid="tableName" />
+        where
+        mobile_phone=#{mobilePhone,jdbcType = VARCHAR} and state=1 and user_type=#{userType}
+    </select>
+    <update id="updatePassword" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" separator=";">
+            update <include refid="tableName" /> set password = #{item.password}
+            where mobile_phone=#{item.mobilePhone} and user_type=#{item.userType}
+        </foreach>
+    </update>
+</mapper>

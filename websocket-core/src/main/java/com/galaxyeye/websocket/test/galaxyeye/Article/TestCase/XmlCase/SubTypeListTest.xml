@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SubTypeListTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="SubTypeListTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.SubTypeListTest">
+                <methods>
+                    <include name="subTypeListTestByNormal"></include>
+                    <include name="subTypeListTestByParameterCountValueIsZero"></include>
+                    <include name="subTypeListTestByParameterCountValueIsNegative"></include>
+                    <include name="subTypeListTestByParameterCountValueIsTen"></include>
+                    <include name="subTypeListTestByParameterPageValueIsZero"></include>
+                    <include name="subTypeListTestByParameterPageValueIsNegative"></include>
+                    <include name="subTypeListTestByParameterPageValueIsFive"></include>
+                    <include name="subTypeListTestByNotExistParameterPage"></include>
+                    <include name="subTypeListTestByNotExistParameterCount"></include>
+                    <include name="subTypeListTestByNotExistParameterName"></include>
+                    <include name="subTypeListTestByNotExistParameterCode"></include>
+                    <include name="subTypeListTestByNotExistParameterMaintype"></include>
+                    <include name="subTypeListTestByNotExistParameterMaintypeAndNotExistParameterNameAndNotExistParameterCode"></include>
+                    <include name="subTypeListTestByParameterCodeValueIsFuzzyMatching"></include>
+                    <include name="subTypeListTestByParameterNameValueIsFuzzyMatching"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

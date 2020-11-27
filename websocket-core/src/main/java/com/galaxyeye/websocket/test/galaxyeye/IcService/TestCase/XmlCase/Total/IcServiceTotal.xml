@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="IcServiceTotal" parallel="classes" thread-count="1">
+
+    <suite-files>
+        <suite-file path="../AppAccountGetProUidTest.xml"></suite-file>
+        <suite-file path="../AppAccountAppLoginTest.xml"></suite-file>
+
+    </suite-files>
+    <listeners>
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+</suite>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AccTotal" parallel="classes" thread-count="1">
+
+    <suite-files>
+        <suite-file path="../AuthTokenTest.xml"></suite-file>
+        <suite-file path="../CheckAccessTokenTest.xml"></suite-file>
+        <suite-file path="../CheckTokenTest.xml"></suite-file>
+        <suite-file path="../CreateAccessTokenTest.xml"></suite-file>
+        <suite-file path="../RefreshAccessTokenTest.xml"></suite-file>
+        <suite-file path="../RefreshTokenTest.xml"></suite-file>
+        <suite-file path="../AddUserTest.xml"></suite-file>
+        <suite-file path="../ELoginTest.xml"></suite-file>
+        <suite-file path="../AddeUserTest.xml"></suite-file>
+        <suite-file path="../UpdEuserTest.xml"></suite-file>
+        <suite-file path="../DelEUserTest.xml"></suite-file>
+        <suite-file path="../GetEuserTest.xml"></suite-file>
+        <suite-file path="../UpdPassTest.xml"></suite-file>
+        <suite-file path="../ResetPassTest.xml"></suite-file>
+        <suite-file path="../LoginTest.xml"></suite-file>
+        <suite-file path="../LogOutTest.xml"></suite-file>
+        <suite-file path="../GetUserTest.xml"></suite-file>
+        <suite-file path="../UserBindTest.xml"></suite-file>
+        <suite-file path="../DelUserBindTest.xml"></suite-file>
+        <suite-file path="../DelUserTest.xml"></suite-file>
+        <suite-file path="../AddAppidTest.xml"></suite-file>
+        <suite-file path="../UpdAppidTest.xml"></suite-file>
+        <suite-file path="../DelAppidTest.xml"></suite-file>
+        <suite-file path="../GetAppidTest.xml"></suite-file>
+        <suite-file path="../KfkserviceTest.xml"></suite-file>
+        <suite-file path="../AccServiceCheckSignTest.xml"></suite-file>
+    </suite-files>
+<!--    <listeners>-->
+<!--        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />-->
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter" />-->
+
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />-->
+<!--    </listeners>-->
+</suite>

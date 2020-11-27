@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceQaExpertReadQaExpertMessageTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceQaExpertReadQaExpertMessageTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceQaExpertReadQaExpertMessageTest">
+                <methods>
+                    <include name="BusinessServiceQaExpertReadQaExpertMessageTest"></include>
+                    <include name="BusinessServiceQaExpertReadQaExpertMessageTestByRepeat"></include>
+                    <include name="BusinessServiceQaExpertReadQaExpertMessageTestByReadNotExistRecord"></include>
+                    <include name="BusinessServiceQaExpertReadQaExpertMessageTestByNotExistParameterNickName"></include>
+                    <include name="BusinessServiceQaExpertReadQaExpertMessageTestByParameterNickNameValueIsNotExist"></include>
+                    <include name="BusinessServiceQaExpertReadQaExpertMessageTestByBmAppidAndAccessToken"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

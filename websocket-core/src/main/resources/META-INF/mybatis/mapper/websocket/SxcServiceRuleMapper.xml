@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.SxcServiceRuleMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.SxcServiceRule">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="city_code" jdbcType="INTEGER" property="cityCode" />
+    <result column="pickhouse_id" jdbcType="INTEGER" property="pickhouseId" />
+    <result column="goods_group_ids" jdbcType="VARCHAR" property="goodsGroupIds" />
+    <result column="cat_ids" jdbcType="VARCHAR" property="catIds" />
+    <result column="charge_standard" jdbcType="VARCHAR" property="chargeStandard" />
+    <result column="gmt_start_time" jdbcType="TIMESTAMP" property="gmtStartTime" />
+    <result column="gmt_end_time" jdbcType="TIMESTAMP" property="gmtEndTime" />
+    <result column="enabled" jdbcType="BIT" property="enabled" />
+    <result column="rule_group_id" jdbcType="VARCHAR" property="ruleGroupId" />
+    <result column="gmt_create_time" jdbcType="TIMESTAMP" property="gmtCreateTime" />
+    <result column="gmt_modify_time" jdbcType="TIMESTAMP" property="gmtModifyTime" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="modifier_id" jdbcType="INTEGER" property="modifierId" />
+  </resultMap>
+    <sql id="tableName">
+		sxc.sxc_service_rule
+	</sql>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, city_code, pickhouse_id, goods_group_ids, cat_ids, charge_standard, gmt_start_time, 
+    gmt_end_time, enabled, rule_group_id, gmt_create_time, gmt_modify_time, creator_id, 
+    modifier_id
+  </sql>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.SxcServiceRuleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from <include refid="tableName" />
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.SxcServiceRule">
+    insert into <include refid="tableName" /> (id, city_code, pickhouse_id,
+      goods_group_ids, cat_ids, charge_standard, 
+      gmt_start_time, gmt_end_time, enabled, 
+      rule_group_id, gmt_create_time, gmt_modify_time, 
+      creator_id, modifier_id)
+    values (#{id,jdbcType=INTEGER}, #{cityCode,jdbcType=INTEGER}, #{pickhouseId,jdbcType=INTEGER}, 
+      #{goodsGroupIds,jdbcType=VARCHAR}, #{catIds,jdbcType=VARCHAR}, #{chargeStandard,jdbcType=VARCHAR}, 
+      #{gmtStartTime,jdbcType=TIMESTAMP}, #{gmtEndTime,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT}, 
+      #{ruleGroupId,jdbcType=VARCHAR}, #{gmtCreateTime,jdbcType=TIMESTAMP}, #{gmtModifyTime,jdbcType=TIMESTAMP}, 
+      #{creatorId,jdbcType=INTEGER}, #{modifierId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.SxcServiceRule">
+    insert into <include refid="tableName" />
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cityCode != null">
+        city_code,
+      </if>
+      <if test="pickhouseId != null">
+        pickhouse_id,
+      </if>
+      <if test="goodsGroupIds != null">
+        goods_group_ids,
+      </if>
+      <if test="catIds != null">
+        cat_ids,
+      </if>
+      <if test="chargeStandard != null">
+        charge_standard,
+      </if>
+      <if test="gmtStartTime != null">
+        gmt_start_time,
+      </if>
+      <if test="gmtEndTime != null">
+        gmt_end_time,
+      </if>
+      <if test="enabled != null">
+        enabled,
+      </if>
+      <if test="ruleGroupId != null">
+        rule_group_id,
+      </if>
+      <if test="gmtCreateTime != null">
+        gmt_create_time,
+      </if>
+      <if test="gmtModifyTime != null">
+        gmt_modify_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="modifierId != null">
+        modifier_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=INTEGER},
+      </if>
+      <if test="pickhouseId != null">
+        #{pickhouseId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsGroupIds != null">
+        #{goodsGroupIds,jdbcType=VARCHAR},
+      </if>
+      <if test="catIds != null">
+        #{catIds,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeStandard != null">
+        #{chargeStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtStartTime != null">
+        #{gmtStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtEndTime != null">
+        #{gmtEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=BIT},
+      </if>
+      <if test="ruleGroupId != null">
+        #{ruleGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreateTime != null">
+        #{gmtCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModifyTime != null">
+        #{gmtModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="modifierId != null">
+        #{modifierId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map">
+    update <include refid="tableName" />
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityCode != null">
+        city_code = #{record.cityCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.pickhouseId != null">
+        pickhouse_id = #{record.pickhouseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsGroupIds != null">
+        goods_group_ids = #{record.goodsGroupIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.catIds != null">
+        cat_ids = #{record.catIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chargeStandard != null">
+        charge_standard = #{record.chargeStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtStartTime != null">
+        gmt_start_time = #{record.gmtStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtEndTime != null">
+        gmt_end_time = #{record.gmtEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.enabled != null">
+        enabled = #{record.enabled,jdbcType=BIT},
+      </if>
+      <if test="record.ruleGroupId != null">
+        rule_group_id = #{record.ruleGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreateTime != null">
+        gmt_create_time = #{record.gmtCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModifyTime != null">
+        gmt_modify_time = #{record.gmtModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creatorId != null">
+        creator_id = #{record.creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifierId != null">
+        modifier_id = #{record.modifierId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update <include refid="tableName" />
+    set id = #{record.id,jdbcType=INTEGER},
+      city_code = #{record.cityCode,jdbcType=INTEGER},
+      pickhouse_id = #{record.pickhouseId,jdbcType=INTEGER},
+      goods_group_ids = #{record.goodsGroupIds,jdbcType=VARCHAR},
+      cat_ids = #{record.catIds,jdbcType=VARCHAR},
+      charge_standard = #{record.chargeStandard,jdbcType=VARCHAR},
+      gmt_start_time = #{record.gmtStartTime,jdbcType=TIMESTAMP},
+      gmt_end_time = #{record.gmtEndTime,jdbcType=TIMESTAMP},
+      enabled = #{record.enabled,jdbcType=BIT},
+      rule_group_id = #{record.ruleGroupId,jdbcType=VARCHAR},
+      gmt_create_time = #{record.gmtCreateTime,jdbcType=TIMESTAMP},
+      gmt_modify_time = #{record.gmtModifyTime,jdbcType=TIMESTAMP},
+      creator_id = #{record.creatorId,jdbcType=INTEGER},
+      modifier_id = #{record.modifierId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

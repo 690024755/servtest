@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceWxDataMessageSendTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceWxDataMessageSendTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceWxDataMessageSendTest">
+                <methods>
+                    <include name="wxDataMessageSendTestByTokenAndUid"></include>
+                    <include name="wxDataMessageSendTestByAccessTokenAndBmAppid"></include>
+                    <include name="wxDataMessageSendTestByParameterNotifyAppidValueIsOne"></include>
+                    <include name="wxDataMessageSendTestByNotExistParameterNotifyAppid"></include>
+                    <include name="wxDataMessageSendTestByNotExistParameterAppid"></include>
+                    <include name="wxDataMessageSendTestByNotExistParameterDstUid"></include>
+                    <include name="wxDataMessageSendTestByParameterDstUidValueIsNotExist"></include>
+                    <include name="wxDataMessageSendTestByNotExistParameterTemplateMsg"></include>
+                    <include name="wxDataMessageSendTestByNotExistParameterPage"></include>
+                    <include name="wxDataMessageSendTestByParameterPageValueIsRight"></include>
+                    <include name="wxDataMessageSendTestByParameterPageValueIsWrong"></include>
+                    <include name="wxDataMessageSendTestByNotExistParameterMiniState"></include>
+                    <include name="wxDataMessageSendTestByExistParameterMiniStateValueIsDeveloper"></include>
+                    <include name="wxDataMessageSendTestByExistParameterMiniStateValueIsTrial"></include>
+                    <include name="wxDataMessageSendTestByExistParameterMiniStateValueIsFormal"></include>
+                    <include name="wxDataMessageSendTestByTemplateMsgOne"></include>
+                    <include name="wxDataMessageSendTestByTemplateMsgTwo"></include>
+                    <include name="wxDataMessageSendTestByTemplateMsgThree"></include>
+                    <include name="wxDataMessageSendTestByTemplateMsgFour"></include>
+                    <include name="wxDataMessageSendTestByTemplateMsgFive"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

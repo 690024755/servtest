@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ArticleTotal" parallel="classes" thread-count="1">
+<!--    <listeners>-->
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />-->
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter" />-->
+<!--        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>-->
+<!--    </listeners>-->
+    <suite-files>
+        <suite-file path="../UploadImageTest.xml"></suite-file>
+        <suite-file path="../UploadImageFormTest.xml"></suite-file>
+        <suite-file path="../SetImagesTest.xml"></suite-file>
+        <suite-file path="../SaveArticleTest.xml"></suite-file>
+        <suite-file path="../GetArticleTest.xml"></suite-file>
+        <suite-file path="../FetchArticleTest.xml"></suite-file>
+        <suite-file path="../MatchArticleTest.xml"></suite-file>
+        <suite-file path="../ArticleListQueryTest.xml"></suite-file>
+        <suite-file path="../ArticleListQueryBySessionTest.xml"></suite-file>
+        <suite-file path="../GetArticleAddInfoTest.xml"></suite-file>
+        <suite-file path="../AuditArticleTest.xml"></suite-file>
+        <suite-file path="../DeleteArticleTest.xml"></suite-file>
+        <suite-file path="../GetUserCollectTest.xml"></suite-file>
+<!--        文章大类、小类、标签接口新增-->
+        <suite-file path="../MainTypeListTest.xml"></suite-file>
+        <suite-file path="../NewMainTypeTest.xml"></suite-file>
+        <suite-file path="../MaintainMainTypeTest.xml"></suite-file>
+        <suite-file path="../SubTypeListTest.xml"></suite-file>
+        <suite-file path="../NewSubTypeTest.xml"></suite-file>
+        <suite-file path="../EditSubTypeTest.xml"></suite-file>
+        <suite-file path="../DeleteSubTypeTest.xml"></suite-file>
+        <suite-file path="../LabListTest.xml"></suite-file>
+        <suite-file path="../NewLabTest.xml"></suite-file>
+        <suite-file path="../EditLabTest.xml"></suite-file>
+        <suite-file path="../DeleteLabTest.xml"></suite-file>
+    </suite-files>
+</suite>

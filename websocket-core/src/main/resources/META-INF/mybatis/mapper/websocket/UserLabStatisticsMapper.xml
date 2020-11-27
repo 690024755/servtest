@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxyeye.websocket.infrastructure.repository.mapper.UserLabStatisticsMapper">
+  <resultMap id="BaseResultMap" type="com.galaxyeye.websocket.infrastructure.repository.entity.UserLabStatistics">
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="sub_type" jdbcType="VARCHAR" property="subType" />
+    <result column="lab" jdbcType="VARCHAR" property="lab" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="read_at" jdbcType="TIMESTAMP" property="readAt" />
+    <result column="falloff_at" jdbcType="TIMESTAMP" property="falloffAt" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <sql id="tableName">
+		articledb.user_lab_statistics
+	</sql>
+
+  <sql id="columns">
+		uid,sub_type,lab,count,status,appid,read_at,falloff_at,created_at,updated_at,deleted_at
+	</sql>
+
+  <select id="getByUId" resultMap="BaseResultMap" parameterType = "Long">
+    select <include refid="columns" /> from
+    <include refid="tableName" />
+    where uid=#{uid,jdbcType = BIGINT}
+  </select>
+
+  <select id="getUserSubTypeScoreByUIdAndSubType" resultType="INTEGER"  parameterType="HashMap">
+    SELECT ifnull(sum(t.num),0) from
+    (select count(DISTINCT sub_type) as num from
+    <include refid="tableName" />
+    where uid=#{uid,jdbcType = BIGINT} and sub_type in
+    <foreach collection="subType" item="item" open="(" close=")" separator="," >
+      #{item,jdbcType = BIGINT}
+    </foreach> group by sub_type)t
+  </select>
+
+  <select id="getTesSubTypeScoreByUIdAndSubType" resultType="INTEGER"  parameterType="HashMap">
+    select count(DISTINCT sub_type) from
+    <include refid="tableName" />
+    where uid=#{uid,jdbcType = BIGINT} and sub_type in
+    <foreach collection="subType" item="item" open="(" close=")" separator="," >
+      #{item,jdbcType = BIGINT}
+    </foreach>
+  </select>
+
+  <!-- 相同标签取最大值与不同标签累加-->
+
+  <select id="getUserLabScoreByUIdAndLab"  parameterType="HashMap" resultType="INTEGER">
+    SELECT ifnull(sum(t.num),0) from (
+    SELECT ifnull(MAX(count),0) as num from <include refid="tableName" /> where uid=#{uid,jdbcType = BIGINT}
+    and lab in
+    <foreach collection="lab" item="item" open="(" close=")" separator="," >
+      #{item,jdbcType = BIGINT}
+    </foreach>
+    GROUP BY lab)t
+  </select>
+
+  <select id="getTesLabScoreByUIdAndLab"  parameterType="HashMap" resultType="INTEGER">
+    SELECT count(DISTINCT lab) from <include refid="tableName" /> where
+    uid=#{uid,jdbcType = BIGINT} and lab in
+    <foreach collection="lab" item="item" open="(" close=")" separator="," >
+      #{item,jdbcType = BIGINT}
+    </foreach>
+  </select>
+
+
+  <delete id="deleteAllUserLabStatistics" >
+    DELETE from <include refid="tableName" />
+  </delete>
+
+  <delete id="deleteByUId" parameterType="Long" >
+    DELETE from <include refid="tableName" /> where uid=#{uid,jdbcType = BIGINT}
+  </delete>
+
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uid, sub_type, lab, count, status, appid, read_at, falloff_at, created_at, updated_at, 
+    deleted_at
+  </sql>
+  <select id="selectByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.UserLabStatisticsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_lab_statistics
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.UserLabStatisticsExample">
+    delete from user_lab_statistics
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.UserLabStatistics">
+    insert into user_lab_statistics (uid, sub_type, lab, 
+      count, status, appid, 
+      read_at, falloff_at, created_at, 
+      updated_at, deleted_at)
+    values (#{uid,jdbcType=INTEGER}, #{subType,jdbcType=VARCHAR}, #{lab,jdbcType=VARCHAR}, 
+      #{count,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}, 
+      #{readAt,jdbcType=TIMESTAMP}, #{falloffAt,jdbcType=TIMESTAMP}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.UserLabStatistics">
+    insert into user_lab_statistics
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="subType != null">
+        sub_type,
+      </if>
+      <if test="lab != null">
+        lab,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="readAt != null">
+        read_at,
+      </if>
+      <if test="falloffAt != null">
+        falloff_at,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="deletedAt != null">
+        deleted_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="subType != null">
+        #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="lab != null">
+        #{lab,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="readAt != null">
+        #{readAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="falloffAt != null">
+        #{falloffAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null">
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.galaxyeye.websocket.infrastructure.repository.entity.example.UserLabStatisticsExample" resultType="java.lang.Long">
+    select count(*) from user_lab_statistics
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_lab_statistics
+    <set>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
+      </if>
+      <if test="record.subType != null">
+        sub_type = #{record.subType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lab != null">
+        lab = #{record.lab,jdbcType=VARCHAR},
+      </if>
+      <if test="record.count != null">
+        count = #{record.count,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.appid != null">
+        appid = #{record.appid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.readAt != null">
+        read_at = #{record.readAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.falloffAt != null">
+        falloff_at = #{record.falloffAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdAt != null">
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedAt != null">
+        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deletedAt != null">
+        deleted_at = #{record.deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_lab_statistics
+    set uid = #{record.uid,jdbcType=INTEGER},
+      sub_type = #{record.subType,jdbcType=VARCHAR},
+      lab = #{record.lab,jdbcType=VARCHAR},
+      count = #{record.count,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      appid = #{record.appid,jdbcType=VARCHAR},
+      read_at = #{record.readAt,jdbcType=TIMESTAMP},
+      falloff_at = #{record.falloffAt,jdbcType=TIMESTAMP},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      deleted_at = #{record.deletedAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

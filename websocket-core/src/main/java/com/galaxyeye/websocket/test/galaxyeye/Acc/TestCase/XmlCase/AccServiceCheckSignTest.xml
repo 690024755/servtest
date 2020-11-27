@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AccServiceCheckSignTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="AccServiceCheckSignTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Acc.TestCase.AccServiceCheckSignTest">
+                <methods>
+                    <include name="accServiceCheckSignTestByParameterSignValueIsLowerCase"></include>
+                    <include name="accServiceCheckSignTestByParameterSignValueIsUpperCase"></include>
+                    <include name="accServiceCheckSignTestByParameterIsUidAndParameterIsToken"></include>
+                    <include name="accServiceCheckSignTestByNotExistParameterSignAppid"></include>
+                    <include name="accServiceCheckSignTestByParameterRandomSeedValueIsEmpty"></include>
+                    <include name="accServiceCheckSignTestByParameterRandomSeedValueIsTab"></include>
+                    <include name="accServiceCheckSignTestByParameterRandomSeedValueIsLong"></include>
+                    <include name="accServiceCheckSignTestByNotExistParameterSign"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>

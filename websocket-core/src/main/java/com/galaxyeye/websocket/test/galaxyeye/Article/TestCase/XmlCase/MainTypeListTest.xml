@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MainTypeListTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="MainTypeListTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.MainTypeListTest">
+                <methods>
+                    <include name="mainTypeListTestByParameterCountValueIsZero"></include>
+                    <include name="mainTypeListTestByParameterCountValueIsNegative"></include>
+                    <include name="mainTypeListTestByNotExistParameterCount"></include>
+                    <include name="mainTypeListTestByParameterPageValueIsZero"></include>
+                    <include name="mainTypeListTestByParameterPageValueIsNegative"></include>
+                    <include name="mainTypeListTestByParameterPageValueIsFive"></include>
+                    <include name="mainTypeListTestByNotExistParameterPage"></include>
+                    <include name="mainTypeListTestByParameterNameValueIsFuzzyMatching"></include>
+                    <include name="mainTypeListTestByParameterNameValueIsNotMatchingParameterCodeValue"></include>
+                    <include name="mainTypeListTestByParameterCodeValueIsFuzzyMatching"></include>
+                    <include name="mainTypeListTestByParameterMaintainValueIsZero"></include>
+                    <include name="mainTypeListTestByParameterMaintainValueIsTwo"></include>
+                    <include name="mainTypeListTestByParameterMaintainValueIsTen"></include>
+                    <include name="mainTypeListTestByNotExistParameterMaintain"></include>
+                    <include name="mainTypeListTestByNotExistParameterCode"></include>
+                    <include name="mainTypeListTestByNotExistParameterName"></include>
+                    <include name="mainTypeListTestByNotExistParameterNameAndNotExistParameterCodeAndParameterMaintainValueIsZero"></include>
+                    <include name="mainTypeListTestByNotExistParameterNameAndNotExistParameterCodeAndParameterMaintainValueIsOne"></include>
+                    <include name="mainTypeListTestByNotExistParameterNameAndNotExistParameterCodeAndParameterMaintainValueIsTwo"></include>
+                    <include name="mainTypeListTestByQueryNotExistPage"></include>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

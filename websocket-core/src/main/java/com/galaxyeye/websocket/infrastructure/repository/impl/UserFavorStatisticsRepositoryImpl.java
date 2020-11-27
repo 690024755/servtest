@@ -1,0 +1,82 @@
+package com.galaxyeye.websocket.infrastructure.repository.impl; /*
+ * Description:com.galaxyeye.websocket.infrastructure.repository.impl
+ * @Date Create on 16:34
+ * @author "mailto:yangyi@galaxyeye-tech.com">yangyi</a>
+ * @Version JDK 1.8
+ * @since version 1.0 Copyright 2019/9/25日galaxyeye All Rights Reserved.
+ */
+
+import com.galaxyeye.websocket.application.repository.UserFavorStatisticsRepository;
+import com.galaxyeye.websocket.infrastructure.repository.entity.UserCollectStatistics;
+import com.galaxyeye.websocket.infrastructure.repository.entity.UserFavorStatistics;
+import com.galaxyeye.websocket.infrastructure.repository.mapper.UserCollectStatisticsMapper;
+import com.galaxyeye.websocket.infrastructure.repository.mapper.UserFavorStatisticsMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Slf4j
+@Repository
+public class UserFavorStatisticsRepositoryImpl implements UserFavorStatisticsRepository {
+    @Autowired
+    private UserFavorStatisticsMapper userFavorStatisticsMapper;
+
+    @Override
+    public int getByArticleId(Long articleId) {
+        return userFavorStatisticsMapper.getByArticleId(articleId);
+    }
+
+    @Override
+    public List<UserFavorStatistics> getByListUId(List list) {
+        List<UserFavorStatistics> ss=userFavorStatisticsMapper.getByListUId(list);
+        if(CollectionUtils.isEmpty(ss)){
+            return null;
+        }
+        return ss;
+    }
+
+    @Override
+    public List<UserFavorStatistics> getByUId(Long uid) {
+        List<UserFavorStatistics> ss=userFavorStatisticsMapper.getByUId(uid);
+        if(CollectionUtils.isEmpty(ss)){
+            return null;
+        }
+        return ss;
+    }
+
+    @Override
+    public UserFavorStatistics getByUIdAndArticleId(Long uid, Long articleId) {
+        HashMap<String,Long> hs=new HashMap<>();
+        hs.put("uid",uid);
+        hs.put("articleId",articleId);
+        return userFavorStatisticsMapper.getByUIdAndArticleId(hs);
+    }
+
+    @Override
+    public int deleteAllUserFavorStatistics() {
+        return userFavorStatisticsMapper.deleteAllUserFavorStatistics();
+    }
+
+    @Override
+    public int deleteByUId(Long uid) {
+        return userFavorStatisticsMapper.deleteByUId(uid);
+    }
+
+    @Override
+    public int deleteByArticleId(Long articleId) {
+        return userFavorStatisticsMapper.deleteByArticleId(articleId);
+    }
+
+    @Override
+    public int deleteByUIdAndArticleId(Long uid, Long articleId) {
+        HashMap<String,Long> hs=new HashMap<>();
+        hs.put("uid",uid);
+        hs.put("articleId",articleId);
+        return userFavorStatisticsMapper.deleteByUIdAndArticleId(hs);
+    }
+}

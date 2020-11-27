@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ArticleTotal" parallel="classes" thread-count="1">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+    <suite-files>
+        <suite-file path="../MainTypeListTest.xml"></suite-file>
+        <suite-file path="../NewMainTypeTest.xml"></suite-file>
+        <suite-file path="../MaintainMainTypeTest.xml"></suite-file>
+        <suite-file path="../SubTypeListTest.xml"></suite-file>
+        <suite-file path="../NewSubTypeTest.xml"></suite-file>
+        <suite-file path="../EditSubTypeTest.xml"></suite-file>
+        <suite-file path="../DeleteSubTypeTest.xml"></suite-file>
+        <suite-file path="../LabListTest.xml"></suite-file>
+        <suite-file path="../NewLabTest.xml"></suite-file>
+        <suite-file path="../EditLabTest.xml"></suite-file>
+        <suite-file path="../DeleteLabTest.xml"></suite-file>
+    </suite-files>
+</suite>

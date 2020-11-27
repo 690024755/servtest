@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceQaExpertReplyQaExpertMessageTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceQaExpertReplyQaExpertMessageTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceQaExpertReplyQaExpertMessageTest">
+                <methods>
+                    <include name="ReplyQaExpertMessageTestByBmAppidAndAccessToken"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterContentValueIsEmpty"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterQaIdValueIsNotExist"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterTypeValueIsFive"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterTypeValueIsTwo"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterTypeValueIsOne"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterContentValueIsLarge"></include>
+                    <include name="ReplyQaExpertMessageTestByNotExistParameterContent"></include>
+                    <include name="ReplyQaExpertMessageTestByNotExistParameterReplyType"></include>
+                    <include name="ReplyQaExpertMessageTestByNotExistParameterQaId"></include>
+                    <include name="ReplyQaExpertMessageTestByNotExistParameterNickname"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterNicknameValueIsEmpty"></include>
+                    <include name="ReplyQaExpertMessageTestByParameterContentValueIsEmotion"></include>
+                    <include name="ReplyQaExpertMessageTestByUidAndToken"></include>
+                    <include name="ReplyQaExpertMessageTestByNotExistParameterUid"></include>
+
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AnswerQuestionTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="AnswerQuestionTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.AnswerQuestionTest">
+                <methods>
+                    <include name="answerQuestionTestByParameterRightIsOutOfRange"></include>
+                    <include name="answerQuestionTestByNewUser"></include>
+                    <include name="answerQuestionTestByOldUser"></include>
+                    <include name="answerQuestionTestByAnswerThreeQuestion"></include>
+                    <include name="answerQuestionTestByAnswerFourthQuestion"></include>
+                    <include name="answerQuestionTestByUidAndToken"></include>
+                    <include name="answerQuestionTestByBmAppidAndAccessToken"></include>
+                    <include name="answerQuestionTestByExpireToken"></include>
+                    <include name="answerQuestionTestByNotExistParameterRight"></include>
+                    <include name="answerQuestionTestByNotExistParameterAppid"></include>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

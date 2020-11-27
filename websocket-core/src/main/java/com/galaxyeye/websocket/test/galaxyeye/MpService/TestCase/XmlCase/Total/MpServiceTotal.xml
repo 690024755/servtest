@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MpServiceTotal" parallel="classes" thread-count="1">
+<!--    <listeners>-->
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />-->
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter" />-->
+<!--        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>-->
+<!--    </listeners>-->
+    <suite-files>
+        <suite-file path="../GetAppListTest.xml"></suite-file>
+        <suite-file path="../GetBriefTest.xml"></suite-file>
+        <suite-file path="../GetDetailListTest.xml"></suite-file>
+        <suite-file path="../InsertGeneralBatchTest.xml"></suite-file>
+        <suite-file path="../UploadImageFormTest.xml"></suite-file>
+        <suite-file path="../DeleteImageTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceSendImageUrlTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceGetRoomListTest.xml"></suite-file>
+        <suite-file path="../BaiDuPictureTest.xml"></suite-file>
+        <suite-file path="../HealthTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceMsgToMqTest.xml"></suite-file>
+        <suite-file path="../GetQuestionHistoryTest.xml"></suite-file>
+        <suite-file path="../InsertQuestionHistoryTest.xml"></suite-file>
+        <suite-file path="../AnswerQuestionTest.xml"></suite-file>
+        <suite-file path="../GetUserInfoTest.xml"></suite-file>
+        <suite-file path="../CompleteQuestionTest.xml"></suite-file>
+        <suite-file path="../JoinHealthPlanTest.xml"></suite-file>
+        <suite-file path="../GetGeneralTest.xml"></suite-file>
+        <suite-file path="../GetGeneralStructTest.xml"></suite-file>
+<!--        温州交警-->
+        <suite-file path="../BusinessServiceTrafficPoliceCheckUnionidTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceCreateRoomTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceSendMessageTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceReplyMessageTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceReadRoomTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceGetListTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceFinishRoomTest.xml"></suite-file>
+
+        <!--        如下接口已废弃  -->
+<!--        <suite-file path="../BusinessServiceMessageBoardCreateMessageTest.xml"></suite-file>-->
+<!--        <suite-file path="../BusinessServiceMessageBoardFetchMessage.xml"></suite-file>-->
+<!--        <suite-file path="../BusinessServiceMessageBoardGetMessageBoxListTest.xml"></suite-file>-->
+<!--        <suite-file path="../BusinessServiceMessageBoardGetMessageListTest.xml"></suite-file>-->
+<!--        <suite-file path="../BusinessServiceMessageBoardReadMessageTest.xml"></suite-file>-->
+<!--        <suite-file path="../BusinessServiceMessageBoardReplyMessageTest.xml"></suite-file>-->
+<!--人保接口，专家与业务员相关-->
+        <suite-file path="../BusinessServiceQaExpertCreateQaExpertMessageTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceQaExpertFetchQaExpertMessageTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceQaExpertGetQaExpertMessageListTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceQaExpertReplyQaExpertMessageTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceQaExpertReadQaExpertMessageTest.xml"></suite-file>
+<!--        微信订阅消息推送-->
+        <suite-file path="../BusinessServiceWxDataMessageSendTest.xml"></suite-file>
+<!--        交通知识法规答题-->
+        <suite-file path="../BusinessServiceTrafficPoliceSaveQuestioNavatarTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceGetQuestionTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceAnswerQuestionTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceTrafficPoliceGetQuestionRankTest.xml"></suite-file>
+
+<!--        温州人社-->
+        <suite-file path="../BusinessServiceWzhrssFaceVerifyTokenTestTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssCardListTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssUnstartedCardListTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssWithdrawCardListTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssBankListTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssTransactionDetailTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssSendsmsCodeTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssWithDrawWithSmsTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssCardStateTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssCardBalanceTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssStartTransactionCodeTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssWithDrawWithPinTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssWithDrawAccountTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssPensionTokenTest.xml"></suite-file>
+        <suite-file path="../BusinessServiceWzhrssGetPhoneTest.xml"></suite-file>
+
+
+    </suite-files>
+</suite>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NewMainTypeTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="NewMainTypeTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.Article.TestCase.NewMainTypeTest">
+                <methods>
+                    <include name="newMainTypeTestByReceiveTopic"></include>
+                    <include name="newMainTypeTestByAddSameName"></include>
+                    <include name="newMainTypeTestByParameterNameValueIsLong"></include>
+                    <include name="newMainTypeTestByParameterNameValueIsEmotion"></include>
+                    <include name="newMainTypeTestByParameterNameValueIsTab"></include>
+                    <include name="newMainTypeTestByParameterNameValueIsTabAndCharacter"></include>
+                    <include name="newMainTypeTestByParameterMaintainValueIsOne"></include>
+                    <include name="newMainTypeTestByParameterMaintainValueIsTwo"></include>
+                    <include name="newMainTypeTestByParameterMaintainValueIsTen"></include>
+                    <include name="newMainTypeTestByNotExistParameterMaintain"></include>
+                    <include name="newMainTypeTestByNotExistParameterName"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

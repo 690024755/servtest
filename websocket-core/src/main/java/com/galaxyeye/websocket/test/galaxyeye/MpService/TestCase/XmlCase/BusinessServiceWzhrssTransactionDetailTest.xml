@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BusinessServiceWzhrssTransactionDetailTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="BusinessServiceWzhrssTransactionDetailTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.MpService.TestCase.BusinessServiceWzhrssTransactionDetailTest">
+                <methods>
+                    <include name="businessServiceWzhrssTransactionDetailTestByNormal"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOfflineAndNotExistParameterCount"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOfflineAndNotExistParameterIndex"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOfflineAndNotExistParameterEnddate"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOfflineAndNotExistParameterStartdate"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndNotExistParameterAcckindAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByNotExistParameterRectypeAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsSixAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsFiveAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsFourAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsThreeAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsTwoAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsOneAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOfflineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByNotExistParameterRectypeAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByNotExistParameterRectypeValueIsSixAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsFiveAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsFourAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsThreeAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsTwoAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsOneAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateMoreThanThreeMonths"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndNotExistTransactionDetail"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterIndexVulueIsZero"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterIndexVulueIsOne"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterIndexVulueIsOneHundred"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterCountVulueIsNegativeTen"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterCountVulueIsZero"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterCountVulueIsFive"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsOnlineAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterCountVulueIsOneHundred"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsInvlidateAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterCountVulueIsOneHundred"></include>
+                    <include name="businessServiceWzhrssTransactionDetailTestByParameterRectypeValueIsZeroAndParameterAcckindValueIsSixAndDiffEnddateAndStartdateLessThanThreeMonthsAndParameterCountVulueIsOneHundred"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport"/>
+    </listeners>
+</suite>

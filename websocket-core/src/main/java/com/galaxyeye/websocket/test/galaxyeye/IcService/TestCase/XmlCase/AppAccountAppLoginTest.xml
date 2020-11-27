@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AppAccountAppLoginTest" parallel="classes" thread-count="5">
+    <test verbose="2" preserve-order="true" name="AppAccountAppLoginTest">
+        <classes>
+            <class name="com.galaxyeye.websocket.test.galaxyeye.IcService.TestCase.AppAccountAppLoginTest">
+                <methods>
+                    <include name="AppAccountAppLoginTestByCommonUserAndTypeValueIsZero"></include>
+                    <include name="AppAccountAppLoginTestByCommonUserAndTypeValueIsOne"></include>
+                    <include name="AppAccountAppLoginTestByCommonUserAndTypeValueIsFive"></include>
+                    <include name="AppAccountAppLoginTestByExpertUserAndTypeValueIsZero"></include>
+                    <include name="AppAccountAppLoginTestByExpertUserAndTypeValueIsOne"></include>
+                    <include name="AppAccountAppLoginTestByExpertUserAndTypeValueIsFive"></include>
+                    <include name="AppAccountAppLoginTestByNotExistParameterType"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="com.galaxyeye.websocket.test.galaxyeye.CustomReport.CustomReport" />
+    </listeners>
+</suite>
